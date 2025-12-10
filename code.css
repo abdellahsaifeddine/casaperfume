@@ -69,56 +69,28 @@ header {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(229, 231, 235, 0.9);
-}
-
-.navigation {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0.6rem 1.2rem;
   display: flex;
-  flex-wrap: wrap;          /* <== important pour mobile */
   align-items: center;
-  gap: 0.55rem 0.8rem;
+  justify-content: space-between;
+  padding: 0.55rem 1.2rem;
 }
-
-/* on utilise l'ordre flex pour restructurer la nav sans toucher au HTML */
-
-.navigation > * {
-  order: 2; /* par défaut tout vient après */
-}
-
-/* logo toujours en premier */
 
 header .logo {
-  order: 0;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--brand);
   white-space: nowrap;
 }
 
-/* barre de recherche juste après le logo */
+/* NAVIGATION GLOBALE */
 
-.navigation .search-bar {
-  order: 1;
-  flex: 1 0 100%;
-}
-
-/* boutons menu (Nos parfums, …) + panier suivent */
-
-.nav-item,
-.navigation > a,
-.cart-btn {
-  order: 2;
-}
-
-/* on masque les liens Services / Contact du header */
-
-.navigation > a[href*="services"],
-.navigation > a[href*="contact"] {
-  display: none;
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: nowrap;
 }
 
 /* liens simples */
@@ -232,7 +204,7 @@ header .logo {
 .search-bar input {
   border: none;
   background: transparent;
-  width: 100%;
+  width: 130px;
   font-size: 0.8rem;
   color: var(--text);
 }
@@ -326,8 +298,7 @@ header .logo {
 .main {
   min-height: 70vh;
   padding: 2.5rem 1.5rem 2rem;
-  /* IMPORTANT : pas de background-attachment: fixed → ça casse sur mobile */
-  background: url("back.jpeg") center center / cover no-repeat;
+  background: url("back.jpeg") center center / cover no-repeat fixed;
   position: relative;
   display: flex;
   align-items: center;
@@ -353,7 +324,7 @@ header .logo {
   color: #fff;
 }
 
-/* GRAND LOGO AU CENTRE */
+/* GRAND LOGO AU CENTRE D’ÉCRAN */
 
 .main .main-content::before {
   content: "CASAPERFUME";
@@ -376,7 +347,7 @@ header .logo {
   margin-bottom: 2rem;
 }
 
-/* icônes sociaux */
+/* icônes sociaux dans le hero */
 
 .main .social-icons {
   justify-content: center;
@@ -444,7 +415,6 @@ section {
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(229, 231, 235, 0.85);
-  position: relative;
 }
 
 .project-image {
@@ -455,7 +425,7 @@ section {
 .project-image img {
   display: block;
   width: 100%;
-  height: 240px;
+  height: 190px;            /* plus petit qu'avant */
   object-fit: cover;
   transition: transform 0.4s ease-out;
 }
@@ -465,13 +435,14 @@ section {
 }
 
 .project-info {
-  padding: 0.9rem 1rem 1.1rem;
+  padding: 0.7rem 0.8rem 0.9rem;  /* padding réduit */
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.35rem;
   position: relative;
-  z-index: 1; /* pour s'assurer que rien ne bloque les boutons */
+  z-index: 1;
 }
+
 
 .project-category {
   font-size: 0.78rem;
@@ -516,23 +487,29 @@ section {
 
 .option-toggle {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
 }
 
 .opt-btn {
   flex: 1;
+  display: inline-flex;                  /* meilleure zone cliquable */
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-subtle);
-  padding: 0.42rem 0.1rem;
-  font-size: 0.78rem;
+  padding: 0.45rem 0.1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   background: #f9fafb;
   color: var(--text-soft);
   transition: background var(--transition-fast), color var(--transition-fast),
     border-color var(--transition-fast), transform var(--transition-fast);
-  pointer-events: auto;      /* on force bien les clics autorisés */
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;                            /* passe au-dessus de tout */
 }
+
 
 .opt-btn.active {
   background: var(--brand);
@@ -815,6 +792,10 @@ body.cart-open::before {
     display: inline;
   }
 
+  .search-bar input {
+    width: 180px;
+  }
+
   .projects .content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -825,21 +806,20 @@ body.cart-open::before {
 }
 
 @media (min-width: 768px) {
-  .navigation {
+  header {
     padding-inline: 2rem;
   }
 
-  .search-bar {
-    flex: 0 0 260px;
-    order: 1;
-  }
-
   header .logo {
-    font-size: 1.05rem;
+    font-size: 1.05rem; /* logo plus grand sur PC */
   }
 
   .header-spacer {
     height: 72px;
+  }
+
+  .search-bar {
+    min-width: 230px;
   }
 
   .main {
@@ -865,12 +845,12 @@ body.cart-open::before {
 }
 
 @media (min-width: 1024px) {
-  .navigation {
+  header {
     padding-inline: 3rem;
   }
 
   header .logo {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* encore plus lisible sur grand écran */
   }
 
   .projects .content {
@@ -878,6 +858,6 @@ body.cart-open::before {
   }
 
   .project-image img {
-    height: 260px;
+    height: 220px;
   }
 }
