@@ -69,28 +69,56 @@ header {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(229, 231, 235, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.55rem 1.2rem;
 }
 
+.navigation {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  flex-wrap: wrap;          /* <== important pour mobile */
+  align-items: center;
+  gap: 0.55rem 0.8rem;
+}
+
+/* on utilise l'ordre flex pour restructurer la nav sans toucher au HTML */
+
+.navigation > * {
+  order: 2; /* par défaut tout vient après */
+}
+
+/* logo toujours en premier */
+
 header .logo {
+  order: 0;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--brand);
   white-space: nowrap;
 }
 
-/* NAVIGATION GLOBALE */
+/* barre de recherche juste après le logo */
 
-.navigation {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex-wrap: nowrap;
+.navigation .search-bar {
+  order: 1;
+  flex: 1 0 100%;
+}
+
+/* boutons menu (Nos parfums, …) + panier suivent */
+
+.nav-item,
+.navigation > a,
+.cart-btn {
+  order: 2;
+}
+
+/* on masque les liens Services / Contact du header */
+
+.navigation > a[href*="services"],
+.navigation > a[href*="contact"] {
+  display: none;
 }
 
 /* liens simples */
@@ -204,7 +232,7 @@ header .logo {
 .search-bar input {
   border: none;
   background: transparent;
-  width: 130px;
+  width: 100%;
   font-size: 0.8rem;
   color: var(--text);
 }
@@ -298,7 +326,8 @@ header .logo {
 .main {
   min-height: 70vh;
   padding: 2.5rem 1.5rem 2rem;
-  background: url("back.jpeg") center center / cover no-repeat fixed;
+  /* IMPORTANT : pas de background-attachment: fixed → ça casse sur mobile */
+  background: url("back.jpeg") center center / cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -324,7 +353,7 @@ header .logo {
   color: #fff;
 }
 
-/* GRAND LOGO AU CENTRE D’ÉCRAN */
+/* GRAND LOGO AU CENTRE */
 
 .main .main-content::before {
   content: "CASAPERFUME";
@@ -347,7 +376,7 @@ header .logo {
   margin-bottom: 2rem;
 }
 
-/* icônes sociaux dans le hero */
+/* icônes sociaux */
 
 .main .social-icons {
   justify-content: center;
@@ -415,6 +444,7 @@ section {
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(229, 231, 235, 0.85);
+  position: relative;
 }
 
 .project-image {
@@ -439,6 +469,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+  position: relative;
+  z-index: 1; /* pour s'assurer que rien ne bloque les boutons */
 }
 
 .project-category {
@@ -499,6 +531,7 @@ section {
   color: var(--text-soft);
   transition: background var(--transition-fast), color var(--transition-fast),
     border-color var(--transition-fast), transform var(--transition-fast);
+  pointer-events: auto;      /* on force bien les clics autorisés */
 }
 
 .opt-btn.active {
@@ -782,10 +815,6 @@ body.cart-open::before {
     display: inline;
   }
 
-  .search-bar input {
-    width: 180px;
-  }
-
   .projects .content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -796,20 +825,21 @@ body.cart-open::before {
 }
 
 @media (min-width: 768px) {
-  header {
+  .navigation {
     padding-inline: 2rem;
   }
 
+  .search-bar {
+    flex: 0 0 260px;
+    order: 1;
+  }
+
   header .logo {
-    font-size: 1.05rem; /* logo plus grand sur PC */
+    font-size: 1.05rem;
   }
 
   .header-spacer {
     height: 72px;
-  }
-
-  .search-bar {
-    min-width: 230px;
   }
 
   .main {
@@ -835,12 +865,12 @@ body.cart-open::before {
 }
 
 @media (min-width: 1024px) {
-  header {
+  .navigation {
     padding-inline: 3rem;
   }
 
   header .logo {
-    font-size: 1.2rem; /* encore plus lisible sur grand écran */
+    font-size: 1.2rem;
   }
 
   .projects .content {
