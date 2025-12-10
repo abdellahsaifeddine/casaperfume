@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ========== RESET & BASE ========== */
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --brand: #000;
+  --brand-dark: #111;
+  --bg: #fff;
+  --text: #111;
+  --muted: #555;
+  --card: #fff;
+  --shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ========== HEADER ========== */
+
+header {
+  background: #fff;
+  color: var(--text);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 200px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-spacer {
+  height: 70px;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--brand);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0;
+}
+
+.navigation a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding-left: 30px;
+  transition: 0.2s;
+}
+
+.navigation a:hover {
+  color: var(--muted);
+}
+
+/* ========== PANIER (BOUTON HEADER) ========== */
+
+.cart-btn {
+  margin-left: 18px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.cart-count {
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  min-height: 20px;
+  font-size: 0.75em;
+  padding: 0 6px;
+}
+
+/* ========== SECTIONS GLOBALES ========== */
+
+section {
+  padding: 100px 200px;
+}
+
+/* ========== HERO ========== */
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url(back.jpeg) no-repeat center center / cover;
+  background-attachment: fixed;
+  color: #fff;
+  position: relative;
+}
+
+/* petit overlay pour la lisibilité du texte */
+.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.35)
+  );
+}
+
+.main .main-content {
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
+}
+
+.main h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #fff;
+}
+
+.main h3 {
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 10px 0 30px;
+  color: #fff;
+}
+
+.main-btn {
+  color: #fff;
+  background: #000;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  display: inline-block;
+  padding: 0.94em 2.18em;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  transition: 0.3s;
+}
+
+.main-btn:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* ========== RÉSEAUX SOCIAUX ========== */
+
+.social-icons a {
+  font-size: 1.5em;
+  margin: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  text-decoration: none;
+}
+
+/* Couleur par défaut dans le header/hero : noir sur fond clair ou icon sur fond image */
+header .social-icons a,
+.main .social-icons a {
+  color: #000000 !important;
+}
+
+.social-icons a:hover {
+  opacity: 0.8;
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+/* footer gère sa couleur plus bas */
+
+/* ========== TITRES DE SECTIONS ========== */
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+  font-size: 2.2em;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+/* ========== LAYOUT GÉNÉRIQUE CONTENU ========== */
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* ========== CARTES (SERVICES, CONTACT) ========== */
+
+.card {
+  background: var(--card);
+  color: var(--text);
+  width: 21.25em;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 25px;
+  margin: 15px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card .icon {
+  color: var(--text);
+  font-size: 4.5em;
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+}
+
+.info h3 {
+  color: var(--text);
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 10px;
+}
+
+/* version contact plus grande pour l’icône */
+.contact .icon {
+  font-size: 4.5em;
+  color: var(--text);
+}
+
+.contact .info h3 {
+  color: var(--text);
+}
+
+.contact .info p {
+  font-size: 1.2em;
+  color: var(--muted);
+}
+
+/* ========== PRODUITS / LISTING ========== */
+
+.projects {
+  background: #f8f8f8;
+}
+
+.projects .content {
+  margin-top: 30px;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  width: 18em;
+  overflow: hidden;
+  border-radius: 14px;
+  margin: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+}
+
+.project-image {
+  height: 260px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 0.8em 1em;
+  text-align: center;
+}
+
+.project-category {
+  font-size: 0.8em;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+/* Titre du produit dans les cartes */
+.project-title {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* Meta produit : prix + bouton ajouter */
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Bouton ajouter au panier */
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ========== BADGES (Original / Décant) ========== */
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+  background: #f7f7f7;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.badge.original {
+  border-color: #0f766e;
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.badge.decant {
+  border-color: #7c3aed;
+  background: #f5f3ff;
+  color: #5b21b6;
+}
+
+/* Option Original / Décant (toggle) */
+
+.option-toggle {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.option-toggle button {
+  flex: 1;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.option-toggle button.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.option-toggle button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========== FOOTER ========== */
+
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-title {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.footer-title span {
+  color: #fff;
+}
+
+.footer .social-icons a {
+  font-size: 1.3em;
+  padding: 0 12px 0 0;
+  color: #fff !important;
+}
+
+.footer .social-icons a:hover {
+  color: #ccc !important;
+}
+
+/* Icônes dans le footer : effet */
+.social-icons a i,
+.footer .social-icons a i {
+  color: #ffffff !important;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a i:hover {
+  color: #cccccc !important;
+  transform: scale(1.1);
+}
+
+/* ========== PANIER (DRAWER) ========== */
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 92%);
+  background: #fff;
+  color: #111;
+  border-left: 1px solid #e5e5e5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transform: translateX(110%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* body.cart-open géré par app.js */
+
+.cart-open .cart-drawer {
+  transform: translateX(0);
+}
+
+/* backdrop flouté quand le panier est ouvert */
+.cart-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}
+
+.cart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-close {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #111;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-close:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Titre d’article dans le panier */
+.cart-item .title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+}
+
+.cart-items {
+  padding: 10px;
+  flex: 1;
+  overflow: auto;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px dashed #e5e5e5;
+}
+
+.cart-item .thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+
+.cart-item .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cart-foot {
+  padding: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.checkout {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  border: 0;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.checkout:hover {
+  background: #f5f5f5;
+}
+
+/* ========== DROPDOWN HEADER ========== */
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  background: transparent;
+  border: 0;
+  font: inherit;
+  color: var(--text);
+  padding-left: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link:hover {
+  color: var(--muted);
+}
+
+.has-dropdown .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none;
+  z-index: 1100;
+}
+
+/* ❗ On laisse uniquement l’ouverture via .open (app.js) */
+/* .has-dropdown:hover .dropdown { display: block; }  <-- supprimé */
+
+.has-dropdown.open .dropdown {
+  display: block;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown a:hover {
+  background: #f5f5f5;
+}
+
+.has-dropdown.open .nav-link i {
+  transform: rotate(180deg);
+  transition: 0.2s;
+}
+
+/* ========== RECHERCHE HEADER ========== */
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.search-bar .icon {
+  position: absolute;
+  left: 12px;
+  font-size: 14px;
+  color: #888;
+  pointer-events: none;
+}
+
+.search-bar input[type="search"] {
+  width: 260px;
+  padding: 10px 12px 10px 36px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+}
+
+#searchResults {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  z-index: 1000;
+  display: none;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+#searchResults .item {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#searchResults .item:hover {
+  background: #f7f7f7;
+}
+
+#searchResults .item .tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #efefef;
+  margin-left: auto;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1023px) {
+  header {
+    padding: 12px 20px;
+  }
+
+  .navigation a {
+    padding-left: 10px;
+  }
+
+  .title {
+    font-size: 1.8em;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  .main .main-content h2 {
+    font-size: 1em;
+  }
+
+  .main .main-content h3 {
+    font-size: 1.6em;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar input[type="search"] {
+    width: 200px;
+  }
+}
+
+@media (max-width: 641px) {
+  body {
+    font-size: 12px;
+  }
+
+  .main .main-content h2 {
+    font-size: 0.9em;
+  }
+
+  .main .main-content h3 {
+    font-size: 1.4em;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+
+  .search-bar input[type="search"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 300px) {
+  body {
+    font-size: 10px;
+  }
+}

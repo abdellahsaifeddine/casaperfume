@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Azzaro The Most Wanted Parfum | 𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</title>
+  <meta name="description" content="Azzaro The Most Wanted Parfum — oriental gourmand intense. Disponible en flacon original et en décant authentique 10/30/50 ml.">
+
+  <link rel="stylesheet" href="code.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    .product{
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:30px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .gallery{
+      border:1px solid #eee;
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    /* Conteneur image + flèches */
+    .gallery-inner{
+      position:relative;
+      width:100%;
+      height:520px;
+    }
+
+    .gallery-inner img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .gallery-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      border:none;
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:background .2s, transform .2s;
+    }
+    .gallery-nav:hover{
+      background:rgba(0,0,0,0.7);
+      transform:translateY(-50%) scale(1.05);
+    }
+    .gallery-nav.prev{left:10px;}
+    .gallery-nav.next{right:10px;}
+
+    /* Petits points sous l'image */
+    .gallery-dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      padding:10px 0 12px;
+      background:#fafafa;
+      border-top:1px solid #eee;
+    }
+    .gallery-dot{
+      width:9px;
+      height:9px;
+      border-radius:999px;
+      border:none;
+      background:#d4d4d4;
+      cursor:pointer;
+      padding:0;
+      transition:transform .2s, background .2s;
+    }
+    .gallery-dot.active{
+      background:#000;
+      transform:scale(1.1);
+    }
+
+    .meta .title{font-size:2rem;font-weight:800;margin-bottom:6px}
+    .badge{
+      display:inline-block;
+      font-size:.75rem;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid #e5e5e5;
+      background:#f7f7f7;
+      margin-left:8px;
+      white-space:nowrap
+    }
+    .badge.original{border-color:#0f766e;background:#ecfdf5;color:#065f46}
+    .badge.decant{border-color:#7c3aed;background:#f5f3ff;color:#5b21b6}
+    .option-toggle{display:flex;gap:8px;margin:14px 0}
+    .option-toggle button{
+      flex:1;border:1px solid #ccc;background:#fff;
+      padding:10px 12px;border-radius:10px;cursor:pointer;
+      font-weight:600;font-size:.9rem;transition:.2s
+    }
+    .option-toggle button.active{background:#000;color:#fff;border-color:#000}
+    .option-toggle button.disabled{opacity:.45;cursor:not-allowed}
+    .row{display:flex;gap:12px;align-items:center;margin:8px 0}
+    .row label{min-width:120px;font-weight:600}
+    .price-xl{font-size:1.6rem;font-weight:800;margin:10px 0}
+    .note-box{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;margin-top:18px}
+    .trust{background:#f5f3ff;border:1px solid #e9e5ff;color:#3b2bb3;border-radius:14px;padding:14px;margin-top:14px;font-size:.95rem}
+    @media(max-width:1023px){
+      .product{grid-template-columns:1fr}
+      .gallery-inner{height:380px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+  <nav class="navigation" aria-label="Navigation principale">
+    <div class="nav-item has-dropdown">
+      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+        Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em"></i>
+      </button>
+      <div class="dropdown" role="menu" aria-label="Choisir catégorie">
+        <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
+        <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
+      </div>
+    </div>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+    <form class="search-bar" id="searchForm" role="search" autocomplete="off">
+      <i class="fas fa-search icon" aria-hidden="true"></i>
+      <input type="search" id="searchInput" placeholder="Rechercher un parfum…" aria-label="Rechercher un parfum">
+      <div id="searchResults" aria-live="polite"></div>
+    </form>
+    <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
+      <i class="fas fa-shopping-bag"></i><span class="cart-label">Panier</span>
+      <span id="cartCount" class="cart-count">0</span>
+    </button>
+  </nav>
+</header>
+<div class="header-spacer"></div>
+
+<section class="projects" style="background:#fff;padding-top:40px;padding-bottom:40px">
+  <div class="product">
+    <!-- GALERIE AVEC SLIDER -->
+    <div class="gallery" aria-label="Photos produit Azzaro The Most Wanted">
+      <div class="gallery-inner">
+        <button class="gallery-nav prev" type="button" aria-label="Image précédente">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <img
+          id="azzaro-main-img"
+          src="https://media.nocibe.fr/medias/Um20Ax481595-0-ncb-FR.jpg?context=bWFzdGVyfGltYWdlc3wxNzc4MTl8aW1hZ2UvanBlZ3xhRGd5TDJobE5TODJOREF3TnpJd05EQTNOelU1T0M5VmJUSXdRWGcwT0RFMU9UVmZNRjl1WTJJdFJsSXVhbkJufDk0OTNhNDJjZTNiM2ZkN2FkNGMxNmJkYWNjMjUwNTRiYmNlOTMwMWY3Y2U0YjAxNjQ5OGIxY2Y5NjkwZWQzMjc&grid=true&imPolicy=grayScaled&imdensity=1&imwidth=741"
+          alt="Azzaro The Most Wanted Parfum - vue 1"
+        >
+
+        <button class="gallery-nav next" type="button" aria-label="Image suivante">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="gallery-dots" aria-label="Choisir l’image">
+        <button type="button" class="gallery-dot active" data-index="0"></button>
+        <button type="button" class="gallery-dot" data-index="1"></button>
+        <button type="button" class="gallery-dot" data-index="2"></button>
+      </div>
+    </div>
+
+    <!-- TEXTE & OPTIONS -->
+    <div class="meta">
+      <div class="title">
+        Azzaro The Most Wanted Parfum
+        <span class="badge original" id="typeBadge-azzaro">Original & Décant</span>
+      </div>
+      <div class="row"><label>Collection</label><div>Homme • Oriental Gourmand • <strong>Parfum</strong></div></div>
+      <p style="margin-top:4px;margin-bottom:10px;color:#4b5563">
+        Un parfum ultra-addictif, chaud et épicé, avec des notes de caramel, de vanille et d’épices.
+        Parfait pour les sorties, la nuit et les saisons plus fraîches.
+      </p>
+
+      <p style="font-size:.92rem;color:#6b7280">
+        Chez CASAPERF, <strong>Azzaro The Most Wanted est disponible en flacon original scellé</strong> et
+        en <strong>décant authentique</strong> (10 / 30 / 50 ml).
+      </p>
+
+      <div class="project-card" id="card-azzaro"
+           data-original-price="1000"
+           data-original-name="Azzaro The Most Wanted Parfum (Original)"
+           data-decant-base10="110"
+           data-decant-name="Azzaro The Most Wanted Parfum (Décant)"
+           data-img="https://media.nocibe.fr/medias/Um20Ax481595-0-ncb-FR.jpg?context=bWFzdGVyfGltYWdlc3wxNzc4MTl8aW1hZ2UvanBlZ3xhRGd5TDJobE5TODJOREF3TnpJd05EQTNOelU1T0M5VmJUSXdRWGcwT0RFMU9UVmZNRjl1WTJJdFJsSXVhbkJufDk0OTNhNDJjZTNiM2ZkN2FkNGMxNmJkYWNjMjUwNTRiYmNlOTMwMWY3Y2U0YjAxNjQ5OGIxY2Y5NjkwZWQzMjc&grid=true&imPolicy=grayScaled&imdensity=1&imwidth=741">
+
+        <div class="option-toggle" role="tablist" aria-label="Choisir type">
+          <button type="button" class="opt-btn active" data-type="original" aria-selected="true">Original</button>
+          <button type="button" class="opt-btn" data-type="decant">Décant</button>
+        </div>
+
+        <div class="row" id="volumeRow-azzaro" style="display:none">
+          <label for="volume-azzaro">Volume décant</label>
+          <select id="volume-azzaro" style="padding:10px;border:1px solid #ccc;border-radius:10px">
+            <option value="10" selected>10 ml</option>
+            <option value="30">30 ml</option>
+            <option value="50">50 ml</option>
+          </select>
+        </div>
+
+        <div class="price-xl" id="price-azzaro">1000 DH</div>
+        <div class="row">
+          <button type="button" class="add-btn" id="addBtn-azzaro">
+            <i class="fas fa-cart-plus"></i> Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="trust">
+        <strong>Produits 100% authentiques.</strong><br>
+        Les flacons originaux sont achetés en circuits officiels. Les décants sont remplis à partir de ces flacons,
+        sans aucune dilution ni ajout, dans des atomiseurs propres.
+      </div>
+
+      <div class="note-box">
+        <h3 style="margin-bottom:8px">Pyramide olfactive (indicative)</h3>
+        <p><strong>Tête :</strong> Notes épicées, cardamome</p>
+        <p><strong>Cœur :</strong> Caramel, vanille</p>
+        <p><strong>Fond :</strong> Bois ambrés, fève tonka</p>
+        <p style="margin-top:8px;color:#555">
+          Un parfum puissant, séduisant, avec une excellente tenue et un sillage marqué.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="cart-drawer" aria-hidden="true" aria-label="Panier" id="cartDrawer">
+  <div class="cart-head">
+    <strong>Votre panier</strong>
+    <button class="cart-close" type="button" onclick="toggleCart()" aria-label="Fermer le panier">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div id="cartItems" class="cart-items" role="list"></div>
+  <div class="cart-foot">
+    <div class="totals"><span>Sous-total</span><strong id="subtotal">0 DH</strong></div>
+    <a class="checkout" id="checkoutBtn" href="commande.html" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-credit-card"></i> Passer la commande
+    </a>
+  </div>
+</aside>
+
+<script src="app.js" defer></script>
+<script>
+  function dh(n){
+    return Number(n).toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})+' DH';
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    /* --- SLIDER IMAGES --- */
+    const images = [
+      "https://media.nocibe.fr/medias/Um20Ax481595-0-ncb-FR.jpg?context=bWFzdGVyfGltYWdlc3wxNzc4MTl8aW1hZ2UvanBlZ3xhRGd5TDJobE5TODJOREF3TnpJd05EQTNOelU1T0M5VmJUSXdRWGcwT0RFMU9UVmZNRjl1WTJJdFJsSXVhbkJufDk0OTNhNDJjZTNiM2ZkN2FkNGMxNmJkYWNjMjUwNTRiYmNlOTMwMWY3Y2U0YjAxNjQ5OGIxY2Y5NjkwZWQzMjc&grid=true&imPolicy=grayScaled&imdensity=1&imwidth=741",
+      "https://media.nocibe.fr/medias/LRyDEN481595-1-ncb-FR.jpg?context=bWFzdGVyfGltYWdlc3w0MzA2Mzh8aW1hZ2UvanBlZ3xhRGt6TDJobE9DODJOREF3TnpJd05ERTBNekV6TkM5TVVubEVSVTQwT0RFMU9UVmZNVjl1WTJJdFJsSXVhbkJufDIyMjhmZGYxZTBmZTQzYTU1MjE5NTA2MDljMzliMjJhNTRiNzkzNTVhMjNlMjljMjk5Zjc3OWMyMTNkMGFhMTc&grid=true&imdensity=1&imwidth=741",
+      "https://media.nocibe.fr/medias/2zJNiM481595-3-ncb-FR.jpg?context=bWFzdGVyfGltYWdlc3wzMTI3NTF8aW1hZ2UvanBlZ3xhRFV6TDJobFl5ODJOREF3TnpJd05ESTNOREl3Tmk4eWVrcE9hVTAwT0RFMU9UVmZNMTl1WTJJdFJsSXVhbkJufGE0MGE4ODM0MzE4YWM1YmY0MDE2MGMwNWYxMGY5ZmE1MjEzM2FlZTViZThjMTljY2Y5MjFmOGQzN2ZlMjMwMDM&grid=true&imdensity=1&imwidth=741"
+    ];
+    let currentIndex = 0;
+
+    const mainImg = document.getElementById('azzaro-main-img');
+    const dots    = Array.from(document.querySelectorAll('.gallery-dot'));
+    const prevBtn = document.querySelector('.gallery-nav.prev');
+    const nextBtn = document.querySelector('.gallery-nav.next');
+
+    function updateGallery(index){
+      currentIndex = (index + images.length) % images.length;
+      mainImg.src  = images[currentIndex];
+      mainImg.alt  = "Azzaro The Most Wanted Parfum - vue " + (currentIndex+1);
+
+      dots.forEach((d,i)=>{
+        d.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    prevBtn.addEventListener('click',()=>updateGallery(currentIndex-1));
+    nextBtn.addEventListener('click',()=>updateGallery(currentIndex+1));
+    dots.forEach(d=>{
+      d.addEventListener('click',()=>{
+        const idx = parseInt(d.dataset.index,10) || 0;
+        updateGallery(idx);
+      });
+    });
+
+    /* --- LOGIQUE PRIX / DÉCANT --- */
+    const card      = document.getElementById('card-azzaro');
+    const priceEl   = document.getElementById('price-azzaro');
+    const badge     = document.getElementById('typeBadge-azzaro');
+    const volumeRow = document.getElementById('volumeRow-azzaro');
+    const volumeSel = document.getElementById('volume-azzaro');
+    const addBtn    = document.getElementById('addBtn-azzaro');
+
+    function refresh(){
+      const type = document.querySelector('#card-azzaro .opt-btn.active')?.dataset.type || 'original';
+
+      if(type === 'original'){
+        badge.textContent = 'Original & Décant';
+        badge.className   = 'badge original';
+        volumeRow.style.display = 'none';
+
+        const p = parseFloat(card.dataset.originalPrice || '0');
+        priceEl.textContent = dh(p);
+        addBtn.dataset.title = card.dataset.originalName;
+        addBtn.dataset.price = String(p);
+        addBtn.dataset.img   = card.dataset.img;
+      } else {
+        badge.textContent = 'Décant';
+        badge.className   = 'badge decant';
+        volumeRow.style.display = '';
+
+        const base10 = parseFloat(card.dataset.decantBase10 || '0'); // 119 DH pour 10 ml
+        const vol    = parseInt(volumeSel.value,10) || 10;
+        const p      = base10 * (vol / 10);
+
+        priceEl.textContent = dh(p);
+        addBtn.dataset.title = card.dataset.decantName + ' ' + vol + ' ml';
+        addBtn.dataset.price = String(p);
+        addBtn.dataset.img   = card.dataset.img;
+      }
+    }
+
+    document.querySelectorAll('#card-azzaro .opt-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        if(btn.classList.contains('disabled')) return;
+        document.querySelectorAll('#card-azzaro .opt-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        refresh();
+      });
+    });
+
+    volumeSel.addEventListener('change',refresh);
+    refresh();
+  });
+</script>
+</body>
+</html>

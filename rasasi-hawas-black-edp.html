@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Rasasi Hawas Black EDP | 𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</title>
+  <meta name="description" content="Rasasi Hawas Black Eau de Parfum — fragrance ambrée aromatique moderne. Disponible en flacon original et en décant 10/30/50 ml.">
+
+  <link rel="stylesheet" href="code.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    .product{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;max-width:1200px;margin:0 auto}
+    .gallery{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff}
+    .gallery img{width:100%;height:520px;object-fit:cover;display:block}
+    .meta .title{font-size:2rem;font-weight:800;margin-bottom:6px}
+    .badge{display:inline-block;font-size:.75rem;padding:4px 8px;border-radius:999px;border:1px solid #e5e5e5;background:#f7f7f7;margin-left:8px;white-space:nowrap}
+    .badge.original{border-color:#0f766e;background:#ecfdf5;color:#065f46}
+    .badge.decant{border-color:#7c3aed;background:#f5f3ff;color:#5b21b6}
+    .option-toggle{display:flex;gap:8px;margin:14px 0}
+    .option-toggle button{flex:1;border:1px solid #ccc;background:#fff;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:600;font-size:.9rem;transition:.2s}
+    .option-toggle button.active{background:#000;color:#fff;border-color:#000}
+    .option-toggle button.disabled{opacity:.45;cursor:not-allowed}
+    .row{display:flex;gap:12px;align-items:center;margin:8px 0}
+    .row label{min-width:120px;font-weight:600}
+    .price-xl{font-size:1.6rem;font-weight:800;margin:10px 0}
+    .note-box{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;margin-top:18px}
+    .trust{background:#f5f3ff;border:1px solid #e9e5ff;color:#3b2bb3;border-radius:14px;padding:14px;margin-top:14px;font-size:.95rem}
+    @media(max-width:1023px){.product{grid-template-columns:1fr}.gallery img{height:380px}}
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+  <nav class="navigation" aria-label="Navigation principale">
+    <div class="nav-item has-dropdown">
+      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+        Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em"></i>
+      </button>
+      <div class="dropdown" role="menu" aria-label="Choisir catégorie">
+        <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
+        <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
+      </div>
+    </div>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+    <form class="search-bar" id="searchForm" role="search" autocomplete="off">
+      <i class="fas fa-search icon" aria-hidden="true"></i>
+      <input type="search" id="searchInput" placeholder="Rechercher un parfum…" aria-label="Rechercher un parfum">
+      <div id="searchResults" aria-live="polite"></div>
+    </form>
+    <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
+      <i class="fas fa-shopping-bag"></i><span class="cart-label">Panier</span>
+      <span id="cartCount" class="cart-count">0</span>
+    </button>
+  </nav>
+</header>
+<div class="header-spacer"></div>
+
+<section class="projects" style="background:#fff;padding-top:40px;padding-bottom:40px">
+  <div class="product">
+    <div class="gallery">
+      <img src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif"
+           alt="Flacon Rasasi Hawas Black Eau de Parfum">
+    </div>
+
+    <div class="meta">
+      <div class="title">
+        Rasasi Hawas Black EDP
+        <span class="badge original" id="typeBadge-hawas">Original & Décant</span>
+      </div>
+      <div class="row"><label>Collection</label><div>Homme • Ambré Aromatique • <strong>EDP</strong></div></div>
+      <p style="margin-top:4px;margin-bottom:10px;color:#4b5563">
+        Une fragrance moderne, légèrement sucrée, avec une base boisée et ambrée.
+        Parfait pour le quotidien ou les soirées, avec un très bon rapport qualité/prix.
+      </p>
+
+      <p style="font-size:.92rem;color:#6b7280">
+        Chez CASAPERF, <strong>Hawas Black est disponible en flacon original</strong> et en
+        <strong>décant authentique</strong> (10 / 30 / 50 ml).
+      </p>
+
+      <div class="project-card" id="card-hawas"
+           data-original-price="390"
+           data-original-name="Rasasi Hawas Black EDP (Original)"
+           data-decant-base10="50"
+           data-decant-name="Rasasi Hawas Black EDP (Décant)"
+           data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">
+
+        <div class="option-toggle" role="tablist" aria-label="Choisir type">
+          <button type="button" class="opt-btn active" data-type="original" aria-selected="true">Original</button>
+          <button type="button" class="opt-btn" data-type="decant">Décant</button>
+        </div>
+
+        <div class="row" id="volumeRow-hawas" style="display:none">
+          <label for="volume-hawas">Volume décant</label>
+          <select id="volume-hawas" style="padding:10px;border:1px solid #ccc;border-radius:10px">
+            <option value="10" selected>10 ml</option>
+            <option value="30">30 ml</option>
+            <option value="50">50 ml</option>
+          </select>
+        </div>
+
+        <div class="price-xl" id="price-hawas">390 DH</div>
+        <div class="row">
+          <button type="button" class="add-btn" id="addBtn-hawas">
+            <i class="fas fa-cart-plus"></i> Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="trust">
+        <strong>Produits 100% authentiques.</strong><br>
+        Les flacons originaux sont achetés en parfumeries agréées. Les décants sont remplis directement à partir
+        de ces flacons, dans des atomiseurs propres et hermétiques.
+      </div>
+
+      <div class="note-box">
+        <h3 style="margin-bottom:8px">Pyramide olfactive (indicative)</h3>
+        <p><strong>Tête :</strong> Agrumes, notes fraîches</p>
+        <p><strong>Cœur :</strong> Notes aromatiques, épices</p>
+        <p><strong>Fond :</strong> Ambre, bois, musc</p>
+        <p style="margin-top:8px;color:#555">
+          Un parfum polyvalent, moderne et accrocheur, avec une bonne tenue et un sillage agréable.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="cart-drawer" aria-hidden="true" aria-label="Panier" id="cartDrawer">
+  <div class="cart-head">
+    <strong>Votre panier</strong>
+    <button class="cart-close" type="button" onclick="toggleCart()" aria-label="Fermer le panier">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div id="cartItems" class="cart-items" role="list"></div>
+  <div class="cart-foot">
+    <div class="totals"><span>Sous-total</span><strong id="subtotal">0 DH</strong></div>
+    <a class="checkout" id="checkoutBtn" href="commande.html" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-credit-card"></i> Passer la commande
+    </a>
+  </div>
+</aside>
+
+<script src="app.js" defer></script>
+<script>
+  function dh(n){
+    return Number(n).toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})+' DH';
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    const card      = document.getElementById('card-hawas');
+    const priceEl   = document.getElementById('price-hawas');
+    const badge     = document.getElementById('typeBadge-hawas');
+    const volumeRow = document.getElementById('volumeRow-hawas');
+    const volumeSel = document.getElementById('volume-hawas');
+    const addBtn    = document.getElementById('addBtn-hawas');
+
+    function refresh(){
+      const type = document.querySelector('#card-hawas .opt-btn.active')?.dataset.type || 'original';
+
+      if(type === 'original'){
+        badge.textContent = 'Original & Décant';
+        badge.className   = 'badge original';
+        volumeRow.style.display = 'none';
+
+        const p = parseFloat(card.dataset.originalPrice || '0');
+        priceEl.textContent = dh(p);
+        addBtn.dataset.title = card.dataset.originalName;
+        addBtn.dataset.price = String(p);
+        addBtn.dataset.img   = card.dataset.img;
+      } else {
+        badge.textContent = 'Décant';
+        badge.className   = 'badge decant';
+        volumeRow.style.display = '';
+
+        const base10 = parseFloat(card.dataset.decantBase10 || '0'); // 50 DH pour 10 ml
+        const vol    = parseInt(volumeSel.value,10) || 10;
+        const p      = base10 * (vol / 10);
+
+        priceEl.textContent = dh(p);
+        addBtn.dataset.title = card.dataset.decantName + ' ' + vol + ' ml';
+        addBtn.dataset.price = String(p);
+        addBtn.dataset.img   = card.dataset.img;
+      }
+    }
+
+    document.querySelectorAll('#card-hawas .opt-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        if(btn.classList.contains('disabled')) return;
+        document.querySelectorAll('#card-hawas .opt-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        refresh();
+      });
+    });
+
+    volumeSel.addEventListener('change',refresh);
+    refresh();
+  });
+</script>
+</body>
+</html>
