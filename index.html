@@ -8,7 +8,7 @@
   <title>CASAPERF — Parfums d’exception pour homme et femme</title>
 
   <!-- SEO de base -->
-  <meta name="description" content="CASAPERF — Parfums de luxe pour homme et femme : flacons originaux et décants authentiques. Commande simple, livraison rapide au Maroc." />
+  <meta name="description" content="CASAPERF — Parfums de luxe et décants 100% authentiques. Commande simple, livraison rapide au Maroc." />
   <meta name="keywords" content="parfum, casaperf, décant, parfum homme, parfum femme, parfum maroc, fragrance, luxe" />
   <meta name="author" content="CASAPERF" />
   <meta name="robots" content="index, follow" />
@@ -18,30 +18,38 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="CASAPERF — Parfums d’exception" />
-  <meta property="og:description" content="Découvrez nos fragrances pour homme et femme. Commande en ligne simple et rapide, flacons originaux et décants authentiques." />
-  <meta property="og:image" content="images/preview.jpg" />
+  <meta property="og:description" content="Découvrez nos fragrances pour homme et femme. Commande en ligne simple, livraison rapide au Maroc." />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:url" content="https://casaperf.com/" />
+  <meta property="og:image" content="https://casaperf.com/assets/og-image.jpg" />
 
   <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" />
+  <link rel="icon" href="https://casaperf.com/assets/favicon.ico" type="image/x-icon" />
 
-  <!-- Fonts / Icons / Styles -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="code.css" />
 
   <!-- Script principal -->
   <script src="app.js" defer></script>
 
-  <!-- Données structurées basiques (Organisation) -->
+  <!-- Données structurées JSON-LD (Store) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "Store",
     "name": "CASAPERF",
-    "url": "https://casaperf.com/",
-    "logo": "https://casaperf.com/images/preview.jpg",
+    "image": "https://casaperf.com/assets/og-image.jpg",
+    "description": "Boutique en ligne de parfums de luxe et décants authentiques au Maroc.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "MA",
+      "addressLocality": "Casablanca"
+    },
+    "url": "https://casaperf.com",
+    "telephone": "+212612345678",
     "sameAs": [
       "https://www.instagram.com/perfumestory.ma/",
       "https://www.facebook.com/",
@@ -52,37 +60,37 @@
 </head>
 
 <body>
+
+  <!-- Bandeau haut façon TwinFragrance -->
+  <div class="top-bar">
+    LIVRAISON GRATUITE DÈS 500 DH
+  </div>
+
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo" aria-label="Accueil CASAPERF">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    <!-- Logo au centre en haut -->
+    <a href="index.html" class="logo" aria-label="Accueil CASAPERF">
+      𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅
+    </a>
 
-    <nav class="navigation" aria-label="Navigation principale">
+    <!-- Nos parfums + panier (à droite) -->
+    <nav class="navigation header-actions" aria-label="Navigation principale">
+      <!-- Bouton Nos Parfums -->
       <div class="nav-item has-dropdown">
         <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
-          Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em"></i>
+          Nos Parfums <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </button>
         <div class="dropdown" role="menu" aria-label="Choisir catégorie">
-          <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
-          <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
+          <a href="parfums-homme.html" role="menuitem">
+            <i class="fas fa-male"></i> Parfums Homme
+          </a>
+          <a href="parfums-femme.html" role="menuitem">
+            <i class="fas fa-female"></i> Parfums Femme
+          </a>
         </div>
       </div>
 
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-
-      <!-- Recherche (branchée sur app.js) -->
-      <form class="search-bar" id="searchForm" autocomplete="off" role="search" aria-label="Recherche de parfums">
-        <i class="fas fa-search icon" aria-hidden="true"></i>
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="Rechercher un parfum…"
-          aria-label="Rechercher un parfum"
-        >
-        <div id="searchResults" aria-live="polite"></div>
-      </form>
-
-      <!-- Bouton panier (drawer géré par app.js) -->
+      <!-- Bouton panier -->
       <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
         <i class="fas fa-shopping-bag"></i>
         <span class="cart-label">Votre panier</span>
@@ -91,29 +99,28 @@
     </nav>
   </header>
 
+  <!-- Barre de recherche sous le header -->
+  <form
+    class="search-bar header-search"
+    id="searchForm"
+    autocomplete="off"
+    role="search"
+    aria-label="Recherche de parfums"
+  >
+    <i class="fas fa-search icon" aria-hidden="true"></i>
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Rechercher un parfum…"
+      aria-label="Rechercher un parfum"
+    >
+    <div id="searchResults" aria-live="polite"></div>
+  </form>
+
+  <!-- Pas besoin de gros spacer, le header n'est plus fixed -->
   <div class="header-spacer"></div>
 
-  <!-- Hero -->
-  <section class="main" aria-labelledby="hero-title">
-    <div class="main-content">
-      
-
-      
-
-      <div class="social-icons" aria-label="Réseaux sociaux">
-        <a href="https://www.instagram.com/perfumestory.ma/" target="_blank" rel="noopener noreferrer" aria-label="Instagram CASAPERF">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook CASAPERF">
-          <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.tiktok.com/@perfumestory.ma" target="_blank" rel="noopener noreferrer" aria-label="TikTok CASAPERF">
-          <i class="fab fa-tiktok"></i>
-        </a>
-      </div>
-     
-    </div>
-  </section>
+ 
 
   <!-- Produits -->
   <section class="projects" id="produits" aria-label="Sélection de parfums CASAPERF">
@@ -121,46 +128,48 @@
     <div class="content">
 
       <!-- Azzaro The Most Wanted Parfum (Original + Décant) -->
-     <div class="project-card"
-     data-original-price="1000"
-     data-decant-price="119"
-     data-original-name="Azzaro The Most Wanted Parfum (Original)"
-     data-decant-name="Azzaro The Most Wanted Parfum (Décant)"
-     data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+      <div class="project-card"
+           data-original-price="1000"
+           data-decant-price="119"
+           data-original-name="Azzaro The Most Wanted Parfum (Original)"
+           data-decant-name="Azzaro The Most Wanted Parfum (Décant)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
 
-  <div class="project-image">
-    <a href="azzaro-the-most-wanted-parfum.html">
-      <img loading="lazy"
-           src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
-    </a>
-  </div>
+        <div class="project-image">
+          <a href="azzaro-the-most-wanted-parfum.html">
+            <img loading="lazy"
+                 src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
+                 alt="Azzaro The Most Wanted Parfum">
+          </a>
+        </div>
 
-  <div class="project-info">
-    <p class="project-category">Homme <span class="badge original">Original</span></p>
-    <strong class="project-title"><span>Azzaro The Most Wanted Parfum</span></strong>
+        <div class="project-info">
+          <p class="project-category">Homme <span class="badge original">Original</span></p>
+          <strong class="project-title"><span>Azzaro The Most Wanted Parfum</span></strong>
 
-    <div class="option-toggle">
-      <button type="button" class="opt-btn active" data-type="original">Original</button>
-      <button type="button" class="opt-btn" data-type="decant">Décant</button>
-    </div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original">Original</button>
+            <button type="button" class="opt-btn" data-type="decant">Décant</button>
+          </div>
 
-    <!-- CHOIX DU VOLUME DÉCANT -->
-    <div class="decant-row" style="display:none;">
-      <span>Volume décant</span>
-      <select class="decant-volume-select">
-        <option value="10" selected>10 ml</option>
-        <option value="30">30 ml</option>
-        <option value="50">50 ml</option>
-      </select>
-    </div>
+          <!-- CHOIX DU VOLUME DÉCANT -->
+          <div class="decant-row" style="display:none;">
+            <span>Volume décant</span>
+            <select class="decant-volume-select">
+              <option value="10" selected>10 ml</option>
+              <option value="30">30 ml</option>
+              <option value="50">50 ml</option>
+            </select>
+          </div>
 
-    <div class="product-meta">
-      <span class="price">1000 DH</span>
-      <button class="add-btn"><i class="fas fa-cart-plus"></i> Ajouter</button>
-    </div>
-  </div>
-</div>
-
+          <div class="product-meta">
+            <span class="price">1000 DH</span>
+            <button class="add-btn">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
 
       <!-- Rasasi Hawas Black EDP (Original + Décant) -->
       <div class="project-card"
@@ -174,7 +183,7 @@
             <img
               loading="lazy"
               src="https://www.parfumsetmoi.fr/data/tmp/3/9/197759_3.fr.jpg?1758484644_1"
-              alt="Flacon Rasasi Hawas Black Eau de Parfum"
+              alt="Rasasi Hawas Black Eau de Parfum"
             >
           </a>
         </div>
@@ -192,7 +201,6 @@
           </div>
 
           <div class="product-meta">
-            <!-- Aligné sur data-original-price & fiche produit -->
             <span class="price">390 DH</span>
             <button type="button" class="add-btn">
               <i class="fas fa-cart-plus"></i> Ajouter
@@ -208,7 +216,7 @@
             <img
               loading="lazy"
               src="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
-              alt="Flacon Lancôme La Vie Est Belle Eau de Parfum"
+              alt="Lancôme La Vie Est Belle Eau de Parfum"
             >
           </a>
         </div>
@@ -218,7 +226,6 @@
             <span>Lancôme La Vie Est Belle — Décant</span>
           </strong>
           <div class="product-meta">
-            <!-- Aligné sur la page Femme & logique décant 10 ml -->
             <span class="price">119 DH</span>
             <button
               type="button"
@@ -238,8 +245,8 @@
           <a href="ysl-myslf-edp.html">
             <img
               loading="lazy"
-              src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
-              alt="Flacon Yves Saint Laurent MYSLF Eau de Parfum"
+              src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
+              alt="YSL MYSLF Eau de Parfum"
             >
           </a>
         </div>
@@ -255,7 +262,7 @@
               class="add-btn"
               data-title="YSL MYSLF Eau de Parfum (Décant 10 ml)"
               data-price="119"
-              data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
+              data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
               <i class="fas fa-cart-plus"></i> Ajouter
             </button>
           </div>
@@ -269,7 +276,7 @@
             <img
               loading="lazy"
               src="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
-              alt="Flacon Yves Saint Laurent Y Eau de Parfum"
+              alt="YSL Y Eau de Parfum"
             >
           </a>
         </div>
@@ -298,8 +305,8 @@
           <a href="jean-paul-gaultier-scandal-edp.html">
             <img
               loading="lazy"
-              src="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
-              alt="Flacon Jean Paul Gaultier Scandal Eau de Parfum"
+              src="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
+              alt="Jean Paul Gaultier Scandal Eau de Parfum"
             >
           </a>
         </div>
@@ -315,7 +322,7 @@
               class="add-btn"
               data-title="JPG Scandal EDP (Décant 10 ml)"
               data-price="119"
-              data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
+              data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
               <i class="fas fa-cart-plus"></i> Ajouter
             </button>
           </div>
@@ -329,7 +336,7 @@
             <img
               loading="lazy"
               src="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1"
-              alt="Flacon Rue Broca Théorème Matrix Eau de Parfum"
+              alt="Rue Broca Théorème Matrix Eau de Parfum"
             >
           </a>
         </div>
