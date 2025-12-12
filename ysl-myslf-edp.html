@@ -2,169 +2,275 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Yves Saint Laurent MYSLF EDP | 𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</title>
-  <meta name="description" content="Yves Saint Laurent MYSLF Eau de Parfum — boisé floral moderne. Disponible uniquement en décant authentique 10/30/50 ml.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YSL MYSLF – Eau de Parfum | CASAPERF</title>
 
-  <link rel="stylesheet" href="code.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta name="description" content="YSL MYSLF — Décants authentiques CASAPERF. Livraison rapide.">
+
+  <link rel="stylesheet" href="code.css"/>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="app.js" defer></script>
 
   <style>
-    .product{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;max-width:1200px;margin:0 auto}
-    .gallery{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff}
-    .gallery img{width:100%;height:520px;object-fit:cover;display:block}
-    .meta .title{font-size:2rem;font-weight:800;margin-bottom:6px}
-    .badge{display:inline-block;font-size:.75rem;padding:4px 8px;border-radius:999px;border:1px solid #e5e5e5;background:#f7f7f7;margin-left:8px;white-space:nowrap}
-    .badge.decant{border-color:#7c3aed;background:#f5f3ff;color:#5b21b6}
-    .option-toggle{display:flex;gap:8px;margin:14px 0}
-    .option-toggle button{flex:1;border:1px solid #ccc;background:#fff;padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:600;font-size:.9rem;transition:.2s}
-    .option-toggle button.active{background:#000;color:#fff;border-color:#000}
-    .option-toggle button.disabled{opacity:.45;cursor:not-allowed}
-    .row{display:flex;gap:12px;align-items:center;margin:8px 0}
-    .row label{min-width:120px;font-weight:600}
-    .price-xl{font-size:1.6rem;font-weight:800;margin:10px 0}
-    .note-box{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;margin-top:18px}
-    .trust{background:#f5f3ff;border:1px solid #e9e5ff;color:#3b2bb3;border-radius:14px;padding:14px;margin-top:14px;font-size:.95rem}
-    @media(max-width:1023px){.product{grid-template-columns:1fr}.gallery img{height:380px}}
-  </style>
-</head>
-<body>
-<header>
-  <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
-  <nav class="navigation" aria-label="Navigation principale">
-    <div class="nav-item has-dropdown">
-      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
-        Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em"></i>
-      </button>
-      <div class="dropdown" role="menu" aria-label="Choisir catégorie">
-        <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
-        <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
-      </div>
-    </div>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#contact">Contact</a>
-    <form class="search-bar" id="searchForm" role="search" autocomplete="off">
-      <i class="fas fa-search icon" aria-hidden="true"></i>
-      <input type="search" id="searchInput" placeholder="Rechercher un parfum…" aria-label="Rechercher un parfum">
-      <div id="searchResults" aria-live="polite"></div>
-    </form>
-    <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
-      <i class="fas fa-shopping-bag"></i><span class="cart-label">Panier</span>
-      <span id="cartCount" class="cart-count">0</span>
-    </button>
-  </nav>
-</header>
-<div class="header-spacer"></div>
-
-<section class="projects" style="background:#fff;padding-top:40px;padding-bottom:40px">
-  <div class="product">
-    <div class="gallery">
-      <img src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
-           alt="Flacon Yves Saint Laurent MYSLF Eau de Parfum">
-    </div>
-
-    <div class="meta">
-      <div class="title">
-        Yves Saint Laurent MYSLF EDP
-        <span class="badge decant" id="typeBadge-myslf">Décant uniquement</span>
-      </div>
-      <div class="row"><label>Collection</label><div>Homme • Boisé Floral • <strong>EDP</strong></div></div>
-      <p style="margin-top:4px;margin-bottom:10px;color:#4b5563">
-        Un parfum moderne, propre et élégant, autour de la fleur d’oranger, des bois et de notes musquées.
-        Idéal pour un usage quotidien chic.
-      </p>
-
-      <p style="font-size:.92rem;color:#6b7280">
-        Chez CASAPERF, <strong>MYSLF est proposé uniquement en décant authentique</strong> (10 / 30 / 50 ml).
-        Le flacon original complet n’est pas vendu.
-      </p>
-
-      <div class="project-card" id="card-myslf"
-           data-decant-base10="119"
-           data-decant-name="Yves Saint Laurent MYSLF EDP (Décant)"
-           data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
-        <div class="option-toggle" role="tablist" aria-label="Choisir type">
-          <button type="button" class="opt-btn disabled" data-type="original" aria-disabled="true">Original</button>
-          <button type="button" class="opt-btn active" data-type="decant" aria-selected="true">Décant</button>
-        </div>
-
-        <div class="row" id="volumeRow-myslf">
-          <label for="volume-myslf">Volume décant</label>
-          <select id="volume-myslf" style="padding:10px;border:1px solid #ccc;border-radius:10px">
-            <option value="10" selected>10 ml</option>
-            <option value="30">30 ml</option>
-            <option value="50">50 ml</option>
-          </select>
-        </div>
-
-        <div class="price-xl" id="price-myslf">119 DH</div>
-        <div class="row">
-          <button type="button" class="add-btn" id="addBtn-myslf">
-            <i class="fas fa-cart-plus"></i> Ajouter au panier
-          </button>
-        </div>
-      </div>
-
-      <div class="trust">
-        <strong>Décant 100% authentique.</strong><br>
-        Nous remplissons vos atomiseurs à partir de flacons MYSLF d’origine, achetés en parfumerie officielle.
-      </div>
-
-      <div class="note-box">
-        <h3 style="margin-bottom:8px">Pyramide olfactive (indicative)</h3>
-        <p><strong>Tête :</strong> Bergamote</p>
-        <p><strong>Cœur :</strong> Fleur d’oranger</p>
-        <p><strong>Fond :</strong> Bois, muscs</p>
-        <p style="margin-top:8px;color:#555">
-          Un parfum lumineux, propre et moderne, parfait comme signature au quotidien.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<aside class="cart-drawer" aria-hidden="true" aria-label="Panier" id="cartDrawer">
-  <div class="cart-head">
-    <strong>Votre panier</strong>
-    <button class="cart-close" type="button" onclick="toggleCart()" aria-label="Fermer le panier">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  <div id="cartItems" class="cart-items" role="list"></div>
-  <div class="cart-foot">
-    <div class="totals"><span>Sous-total</span><strong id="subtotal">0 DH</strong></div>
-    <a class="checkout" id="checkoutBtn" href="commande.html" target="_blank" rel="noopener noreferrer">
-      <i class="fas fa-credit-card"></i> Passer la commande
-    </a>
-  </div>
-</aside>
-
-<script src="app.js" defer></script>
-<script>
-  function dh(n){
-    return Number(n).toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})+' DH';
-  }
-
-  document.addEventListener('DOMContentLoaded',function(){
-    const card      = document.getElementById('card-myslf');
-    const priceEl   = document.getElementById('price-myslf');
-    const volumeSel = document.getElementById('volume-myslf');
-    const addBtn    = document.getElementById('addBtn-myslf');
-
-    function refresh(){
-      const base10 = parseFloat(card.dataset.decantBase10 || '0');
-      const vol    = parseInt(volumeSel.value,10) || 10;
-      const p      = base10 * (vol / 10);
-
-      priceEl.textContent  = dh(p);
-      addBtn.dataset.title = card.dataset.decantName + ' ' + vol + ' ml';
-      addBtn.dataset.price = String(p);
-      addBtn.dataset.img   = card.dataset.img;
+    /* Mise en page professionnelle */
+    .product-wrapper {
+      max-width: 1000px;
+      margin: 2rem auto 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
-    volumeSel.addEventListener('change',refresh);
-    refresh();
-  });
-</script>
+    .product-image-box {
+      text-align: center;
+    }
+
+    .product-image-box img {
+      width: 75%;
+      max-width: 300px;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      background: #fafafa;
+    }
+
+    .product-info-box h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    .brand-tag {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .notes {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+
+    .category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      border: 1px solid #c7d2fe;
+      margin-bottom: 1.6rem;
+      font-size: 0.82rem;
+    }
+
+    .variant-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .variant-box {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+    }
+
+    .variant-price {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .variant-btn {
+      padding: 0.45rem 0.9rem;
+      background: #111827;
+      color: white;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: 0.25s;
+      border: 1px solid #111827;
+      font-size: 0.82rem;
+    }
+
+    .variant-btn:hover {
+      background: #374151;
+    }
+
+    .extra-info {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .product-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .product-image-box img {
+        width: 60%;
+        max-width: 240px;
+      }
+      .variant-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">LIVRAISON GRATUITE DÈS 500 DH</div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    <nav class="navigation header-actions">
+      <div class="nav-item has-dropdown">
+        <button class="nav-link">Nos Parfums <i class="fas fa-chevron-down"></i></button>
+        <div class="dropdown">
+          <a href="parfums-homme.html"><i class="fas fa-male"></i> Parfums Homme</a>
+          <a href="parfums-femme.html"><i class="fas fa-female"></i> Parfums Femme</a>
+        </div>
+      </div>
+      <button class="cart-btn" id="openCartBtn">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-label">Votre panier</span>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- SEARCH -->
+  <form class="search-bar header-search">
+    <i class="fas fa-search icon"></i>
+    <input type="search" id="searchInput" placeholder="Rechercher un parfum…">
+    <div id="searchResults"></div>
+  </form>
+
+  <div class="header-spacer"></div>
+
+  <!-- SECTION PRODUIT -->
+  <section>
+    <div class="product-wrapper">
+
+      <!-- PHOTO -->
+      <div class="product-image-box">
+        <img src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg"
+             alt="YSL MYSLF Eau de Parfum">
+      </div>
+
+      <!-- INFORMATIONS -->
+      <div class="product-info-box">
+
+        <h1>YSL MYSLF – Eau de Parfum</h1>
+        <div class="brand-tag">Yves Saint Laurent</div>
+
+        <div class="notes">Notes : Bergamote • Fleur d’oranger • Patchouli</div>
+
+        <div class="category-tag">
+          <i class="fas fa-male"></i> Homme
+        </div>
+
+        <!-- VARIANTS OFFICIELS CASAPERF -->
+        <div class="variant-list">
+
+          <!-- 10 ml -->
+          <div class="variant-box">
+            <span>Décant 10 ml</span>
+            <span class="variant-price">119 DH</span>
+            <button class="variant-btn add-btn"
+                    data-title="YSL MYSLF (Décant 10 ml)"
+                    data-price="119"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+
+          <!-- 30 ml -->
+          <div class="variant-box">
+            <span>Décant 30 ml</span>
+            <span class="variant-price">357 DH</span>
+            <button class="variant-btn add-btn"
+                    data-title="YSL MYSLF (Décant 30 ml)"
+                    data-price="357"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+
+          <!-- 50 ml -->
+          <div class="variant-box">
+            <span>Décant 50 ml</span>
+            <span class="variant-price">590 DH</span>
+            <button class="variant-btn add-btn"
+                    data-title="YSL MYSLF (Décant 50 ml)"
+                    data-price="590"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+
+        </div>
+
+        <div class="extra-info">
+          Les décants CASAPERF sont préparés depuis le parfum original dans des flacons stériles haute qualité.
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-title">
+      © <span>𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</span> — Tous droits réservés
+    </p>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/perfumestory.ma/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@perfumestory.ma" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+
+  <!-- PANIER -->
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <strong>Votre panier</strong>
+      <button class="cart-close" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-foot">
+      <div class="totals">
+        <span>Sous-total</span>
+        <strong id="subtotal">0 DH</strong>
+      </div>
+
+      <a class="checkout" href="commande.html" target="_blank">
+        <i class="fas fa-credit-card"></i> Passer la commande
+      </a>
+    </div>
+  </aside>
+
 </body>
 </html>
