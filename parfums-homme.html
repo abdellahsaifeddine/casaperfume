@@ -5,350 +5,380 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅 — Parfums Homme</title>
   <meta name="description" content="Parfums Homme CASAPERF : choisissez entre flacon original ou décant authentique reconditionné." />
+
   <link rel="stylesheet" href="code.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-<header>
-  <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
-  <nav class="navigation" aria-label="Navigation principale">
-    <div class="nav-item has-dropdown">
-      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
-        Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em"></i>
-      </button>
-      <div class="dropdown" role="menu" aria-label="Choisir catégorie">
-        <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
-        <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
-      </div>
-    </div>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#contact">Contact</a>
 
-    <form class="search-bar" id="searchForm" role="search" autocomplete="off">
-      <i class="fas fa-search icon" aria-hidden="true"></i>
-      <input type="search" id="searchInput" placeholder="Rechercher un parfum…" aria-label="Rechercher un parfum">
-      <div id="searchResults" aria-live="polite"></div>
-    </form>
-
-    <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
-      <i class="fas fa-shopping-bag"></i>
-      <span class="cart-label">Votre panier</span>
-      <span id="cartCount" class="cart-count">0</span>
-    </button>
-  </nav>
-</header>
-
-<div class="header-spacer"></div>
-
-<section class="projects" id="produits">
-  <h2 class="title">Parfums Homme</h2>
-  <div class="content">
-
-    <!-- Azzaro The Most Wanted Parfum (Original + Décant) -->
-    <div class="project-card"
-         data-original-price="1000"
-         data-decant-price="119"
-         data-original-name="Azzaro The Most Wanted Parfum (Original)"
-         data-decant-name="Azzaro The Most Wanted Parfum (Décant 10 ml)"
-         data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
-      <div class="project-image">
-        <a href="azzaro-the-most-wanted-parfum.html">
-          <img loading="lazy"
-               src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
-               alt="Azzaro The Most Wanted Parfum flacon noir">
-        </a>
-      </div>
-      <div class="project-info">
-        <p class="project-category">Homme <span class="badge original">Original</span></p>
-        <strong class="project-title">
-          <span>Azzaro The Most Wanted Parfum</span>
-        </strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn active" data-type="original">Original</button>
-          <button type="button" class="opt-btn" data-type="decant">Décant</button>
-        </div>
-        <div class="decant-row"
-     style="display:none;margin-top:8px;font-size:.85rem;align-items:center;justify-content:space-between;gap:8px;">
-  <span>Volume décant</span>
-  <select class="decant-volume-select"
-          style="padding:6px 8px;border-radius:8px;border:1px solid #ccc;">
-    <option value="10" selected>10 ml</option>
-    <option value="30">30 ml</option>
-    <option value="50">50 ml</option>
-  </select>
-</div>
-
-        <div class="product-meta">
-          <span class="price">1000 DH</span>
-          <button type="button" class="add-btn">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SCANDAL (décant) -->
-    <div class="project-card"
-         data-decant-price="119"
-         data-decant-name="Jean Paul Gaultier Scandal EDP (Décant 10 ml)"
-         data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
-
-      <div class="project-image">
-        <a href="jean-paul-gaultier-scandal-edp.html">
-          <img loading="lazy"
-               src="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
-               alt="Jean Paul Gaultier Scandal Eau de Parfum">
-        </a>
-      </div>
-
-      <div class="project-info">
-        <p class="project-category"></p>
-
-        Homme <strong class="project-title"><span>Jean Paul Gaultier Scandal — Décant</span> <span class="badge original">Original</span></strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn disabled">Original</button>
-          <button type="button" class="opt-btn active">Décant</button>
-        </div>
-
-        <div class="product-meta">
-          <span class="price">119 DH</span>
-          <button type="button" class="add-btn"
-                  data-title="Jean Paul Gaultier Scandal EDP (Décant 10 ml)"
-                  data-price="119"
-                  data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rasasi Hawas Black EDP (Original + Décant) -->
-    <div class="project-card"
-         data-original-price="390"
-         data-decant-price="50"
-         data-original-name="Rasasi Hawas Black EDP (Flacon complet)"
-         data-decant-name="Rasasi Hawas Black EDP (Décant 10 ml)"
-         data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">
-      <div class="project-image">
-        <a href="rasasi-hawas-black-edp.html">
-          <img loading="lazy"
-               src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif"
-               alt="Rasasi Hawas Black Eau de Parfum">
-        </a>
-      </div>
-      <div class="project-info">
-        <p class="project-category">
-          Homme <span class="badge original">Original</span>
-        </p>
-        <strong class="project-title">
-          <span>Rasasi Hawas for Him Black</span>
-        </strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn active" data-type="original">Original</button>
-          <button type="button" class="opt-btn" data-type="decant">Décant</button>
-        </div>
-        <div class="product-meta">
-          <span class="price">390 DH</span>
-          <button type="button" class="add-btn">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- YSL Y Eau de Parfum (Décant uniquement) -->
-    <div class="project-card"
-         data-original-price="0"
-         data-decant-price="119"
-         data-original-name="Yves Saint Laurent Y EDP (Original)"
-         data-decant-name="Yves Saint Laurent Y EDP (Décant 10 ml)"
-         data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
-      <div class="project-image">
-        <a href="ysl-y-edp.html">
-          <img loading="lazy"
-               src="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
-               alt="Yves Saint Laurent Y Eau de Parfum">
-        </a>
-      </div>
-      <div class="project-info">
-<p class="project-category">
-  Homme <span class="badge original">Original</span>
-  <span class="badge decant">Décant uniquement</span>
-</p>        <strong class="project-title">
-          <span>Yves Saint Laurent Y Eau de Parfum</span>
-        </strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn disabled" data-type="original">Original</button>
-          <button type="button" class="opt-btn active" data-type="decant">Décant</button>
-        </div>
-        <div class="product-meta">
-          <span class="price">119 DH</span>
-          <button type="button" class="add-btn">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- YSL MYSLF Eau de Parfum (Décant uniquement) -->
-    <div class="project-card"
-         data-original-price="0"
-         data-decant-price="119"
-         data-original-name="Yves Saint Laurent MYSLF EDP (Original)"
-         data-decant-name="Yves Saint Laurent MYSLF EDP (Décant 10 ml)"
-         data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
-      <div class="project-image">
-        <a href="ysl-myslf-edp.html">
-          <img loading="lazy"
-               src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
-               alt="Yves Saint Laurent MYSLF Eau de Parfum">
-        </a>
-      </div>
-      <div class="project-info">
-        <p class="project-category">Homme <span class="badge original">Original</span><span class="badge decant">Décant uniquement</span></p>
-        <strong class="project-title">
-          <span>Yves Saint Laurent MYSLF</span>
-        </strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn disabled" data-type="original">Original</button>
-          <button type="button" class="opt-btn active" data-type="decant">Décant</button>
-        </div>
-        <div class="product-meta">
-          <span class="price">119 DH</span>
-          <button type="button" class="add-btn">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rue Broca Théorème Matrix EDP (Original uniquement) -->
-    <div class="project-card"
-         data-original-price="380"
-         data-original-name="Rue Broca Théorème Matrix EDP (Original)"
-         data-img="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1">
-      <div class="project-image">
-        <a href="rue-broca-theoreme-matrix-edp.html">
-          <img loading="lazy"
-               src="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1"
-               alt="Rue Broca Théorème Matrix Eau de Parfum flacon">
-        </a>
-      </div>
-      <div class="project-info">
-        <p class="project-category">Homme <span class="badge original">Original</span></p>
-        <strong class="project-title">
-          <span>Rue Broca Théorème Matrix</span>
-        </strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn active" data-type="original">Original</button>
-          <button type="button" class="opt-btn disabled" data-type="decant">Décant</button>
-        </div>
-        <div class="product-meta">
-          <span class="price">380 DH</span>
-          <button type="button" class="add-btn">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PANIER -->
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-head">
-    <strong>Votre panier</strong>
-    <button class="cart-close" type="button" onclick="toggleCart()">
-      <i class="fas fa-times" aria-hidden="true"></i>
-    </button>
+  <!-- Bandeau livraison -->
+  <div class="top-bar">
+    LIVRAISON GRATUITE DÈS 500 DH
   </div>
 
-  <div id="cartItems" class="cart-items"></div>
-
-  <div class="cart-foot">
-    <div class="totals">
-      <span>Sous-total</span>
-      <strong id="subtotal">0 DH</strong>
-    </div>
-    <a class="checkout" id="checkoutBtn" href="commande.html" target="_blank" rel="noopener noreferrer">
-      <i class="fas fa-credit-card"></i> Passer la commande
+  <!-- Header principal -->
+  <header>
+    <a href="index.html" class="logo" aria-label="Accueil CASAPERF">
+      𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅
     </a>
-  </div>
-</aside>
 
-<script>
-  // format DH
-  function dh(n){
-    return Number(n).toLocaleString('fr-FR', {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }) + ' DH';
-  }
+    <nav class="navigation header-actions" aria-label="Navigation principale">
+      <div class="nav-item has-dropdown">
+        <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+          Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown" role="menu" aria-label="Choisir catégorie">
+          <a href="parfums-homme.html" role="menuitem">
+            <i class="fas fa-male"></i> Parfums Homme
+          </a>
+          <a href="parfums-femme.html" role="menuitem">
+            <i class="fas fa-female"></i> Parfums Femme
+          </a>
+        </div>
+      </div>
 
-  // Gestion Original / Décant
-  document.addEventListener('click', function(e){
-    const btn = e.target.closest('.opt-btn');
-    if(!btn) return;
-    if(btn.classList.contains('disabled')) return;
+      <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-label">Votre panier</span>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
 
-    const card = btn.closest('.project-card');
-    card.querySelectorAll('.opt-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
+  <!-- Barre de recherche sous le header -->
+  <form
+    class="search-bar header-search"
+    id="searchForm"
+    autocomplete="off"
+    role="search"
+    aria-label="Recherche de parfums"
+  >
+    <i class="fas fa-search icon" aria-hidden="true"></i>
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Rechercher un parfum…"
+      aria-label="Rechercher un parfum"
+    >
+    <div id="searchResults" aria-live="polite"></div>
+  </form>
 
-    const type = btn.dataset.type;
-    const badge = card.querySelector('.badge');
-    const priceEl = card.querySelector('.price');
-    const addBtn = card.querySelector('.add-btn');
+  <div class="header-spacer"></div>
 
-    if(type === 'decant'){
-      if(badge && badge.classList.contains('decant')){
-        badge.textContent = 'Décant uniquement';
+  <!-- Liste parfums homme -->
+  <section class="projects" id="produits">
+    <h2 class="title">Parfums Homme</h2>
+    <div class="content">
+
+      <!-- Azzaro The Most Wanted Parfum (Original + Décant) -->
+      <div class="project-card"
+           data-original-price="1000"
+           data-decant-price="119"
+           data-original-name="Azzaro The Most Wanted Parfum (Original)"
+           data-decant-name="Azzaro The Most Wanted Parfum (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+          <a href="azzaro-the-most-wanted-parfum.html">
+            <img loading="lazy"
+                 src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
+                 alt="Azzaro The Most Wanted Parfum flacon noir">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Homme <span class="badge original">Original</span></p>
+          <strong class="project-title">
+            <span>Azzaro The Most Wanted Parfum</span>
+          </strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original">Original</button>
+            <button type="button" class="opt-btn" data-type="decant">Décant</button>
+          </div>
+
+          <div class="decant-row"
+               style="display:none;margin-top:8px;font-size:.85rem;align-items:center;justify-content:space-between;gap:8px;">
+            <span>Volume décant</span>
+            <select class="decant-volume-select"
+                    style="padding:6px 8px;border-radius:8px;border:1px solid #ccc;">
+              <option value="10" selected>10 ml</option>
+              <option value="30">30 ml</option>
+              <option value="50">50 ml</option>
+            </select>
+          </div>
+
+          <div class="product-meta">
+            <span class="price">1000 DH</span>
+            <button type="button" class="add-btn">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scandal (décant) -->
+      <div class="project-card"
+           data-decant-price="119"
+           data-decant-name="Jean Paul Gaultier Scandal EDP (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
+        <div class="project-image">
+          <a href="jean-paul-gaultier-scandal-edp.html">
+            <img loading="lazy"
+                 src="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
+                 alt="Jean Paul Gaultier Scandal Eau de Parfum">
+          </a>
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">
+            Homme <span class="badge original">Original</span>
+          </p>
+          <strong class="project-title">
+            <span>Jean Paul Gaultier Scandal — Décant</span>
+          </strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled">Original</button>
+            <button type="button" class="opt-btn active">Décant</button>
+          </div>
+
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button type="button" class="add-btn"
+                    data-title="Jean Paul Gaultier Scandal EDP (Décant 10 ml)"
+                    data-price="119"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rasasi Hawas Black EDP (Original + Décant) -->
+      <div class="project-card"
+           data-original-price="390"
+           data-decant-price="50"
+           data-original-name="Rasasi Hawas Black EDP (Flacon complet)"
+           data-decant-name="Rasasi Hawas Black EDP (Décant 10 ml)"
+           data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">
+        <div class="project-image">
+          <a href="rasasi-hawas-black-edp.html">
+            <img loading="lazy"
+                 src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif"
+                 alt="Rasasi Hawas Black Eau de Parfum">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">
+            Homme <span class="badge original">Original</span>
+          </p>
+          <strong class="project-title">
+            <span>Rasasi Hawas for Him Black</span>
+          </strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original">Original</button>
+            <button type="button" class="opt-btn" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">390 DH</span>
+            <button type="button" class="add-btn">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- YSL Y EDP (décant uniquement) -->
+      <div class="project-card"
+           data-original-price="0"
+           data-decant-price="119"
+           data-original-name="Yves Saint Laurent Y EDP (Original)"
+           data-decant-name="Yves Saint Laurent Y EDP (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+          <a href="ysl-y-edp.html">
+            <img loading="lazy"
+                 src="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
+                 alt="Yves Saint Laurent Y Eau de Parfum">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">
+            Homme <span class="badge original">Original</span>
+            <span class="badge decant">Décant uniquement</span>
+          </p>
+          <strong class="project-title">
+            <span>Yves Saint Laurent Y Eau de Parfum</span>
+          </strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled" data-type="original">Original</button>
+            <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button type="button" class="add-btn">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- YSL MYSLF (décant uniquement) -->
+      <div class="project-card"
+           data-original-price="0"
+           data-decant-price="119"
+           data-original-name="Yves Saint Laurent MYSLF EDP (Original)"
+           data-decant-name="Yves Saint Laurent MYSLF EDP (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined">
+        <div class="project-image">
+          <a href="ysl-myslf-edp.html">
+            <img loading="lazy"
+                 src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg?scaleWidth=undefined&scaleHeight=undefined&scaleMode=undefined"
+                 alt="Yves Saint Laurent MYSLF Eau de Parfum">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">
+            Homme <span class="badge original">Original</span>
+            <span class="badge decant">Décant uniquement</span>
+          </p>
+          <strong class="project-title">
+            <span>Yves Saint Laurent MYSLF</span>
+          </strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled" data-type="original">Original</button>
+            <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button type="button" class="add-btn">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rue Broca Théorème Matrix (Original uniquement) -->
+      <div class="project-card"
+           data-original-price="380"
+           data-original-name="Rue Broca Théorème Matrix EDP (Original)"
+           data-img="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1">
+        <div class="project-image">
+          <a href="rue-broca-theoreme-matrix-edp.html">
+            <img loading="lazy"
+                 src="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1"
+                 alt="Rue Broca Théorème Matrix Eau de Parfum flacon">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Homme <span class="badge original">Original</span></p>
+          <strong class="project-title">
+            <span>Rue Broca Théorème Matrix</span>
+          </strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original">Original</button>
+            <button type="button" class="opt-btn disabled" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">380 DH</span>
+            <button type="button" class="add-btn">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Panier (drawer commun) -->
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <strong>Votre panier</strong>
+      <button class="cart-close" type="button" onclick="toggleCart()" aria-label="Fermer le panier">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-foot">
+      <div class="totals">
+        <span>Sous-total</span>
+        <strong id="subtotal">0 DH</strong>
+      </div>
+      <a class="checkout" id="checkoutBtn" href="commande.html" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-credit-card"></i> Passer la commande
+      </a>
+    </div>
+  </aside>
+
+  <script>
+    // format DH
+    function dh(n){
+      return Number(n).toLocaleString('fr-FR', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }) + ' DH';
+    }
+
+    // Gestion Original / Décant (inchangé)
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.opt-btn');
+      if(!btn) return;
+      if(btn.classList.contains('disabled')) return;
+
+      const card = btn.closest('.project-card');
+      card.querySelectorAll('.opt-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const type = btn.dataset.type;
+      const priceEl = card.querySelector('.price');
+      const addBtn = card.querySelector('.add-btn');
+
+      if(type === 'decant'){
+        const p = Number(card.dataset.decantPrice);
+        if (priceEl) priceEl.textContent = dh(p);
+        if (addBtn) {
+          addBtn.dataset.title = card.dataset.decantName;
+          addBtn.dataset.price = p;
+        }
+      }else{
+        const p = Number(card.dataset.originalPrice);
+        if (priceEl) priceEl.textContent = dh(p);
+        if (addBtn) {
+          addBtn.dataset.title = card.dataset.originalName;
+          addBtn.dataset.price = p;
+        }
       }
-      const p = Number(card.dataset.decantPrice);
-      if (priceEl) priceEl.textContent = dh(p);
-      if (addBtn) {
+      if(addBtn) addBtn.dataset.img = card.dataset.img || '';
+    });
+
+    // Initialisation des boutons "Ajouter"
+    document.querySelectorAll('.project-card').forEach(card=>{
+      const addBtn = card.querySelector('.add-btn');
+      if(!addBtn) return;
+      const activeType = card.querySelector('.opt-btn.active')?.dataset.type || 'original';
+      if(activeType === 'decant' && card.dataset.decantName){
+        const p = Number(card.dataset.decantPrice);
         addBtn.dataset.title = card.dataset.decantName;
         addBtn.dataset.price = p;
-      }
-    }else{
-      const p = Number(card.dataset.originalPrice);
-      if (priceEl) priceEl.textContent = dh(p);
-      if (addBtn) {
+        const priceEl = card.querySelector('.price');
+        if(priceEl) priceEl.textContent = dh(p);
+      }else{
+        const p = Number(card.dataset.originalPrice);
         addBtn.dataset.title = card.dataset.originalName;
         addBtn.dataset.price = p;
+        const priceEl = card.querySelector('.price');
+        if(priceEl) priceEl.textContent = dh(p);
       }
-    }
-    if(addBtn) addBtn.dataset.img = card.dataset.img || '';
-  });
+      addBtn.dataset.img = card.dataset.img || '';
+    });
+  </script>
 
-  // Initialisation des boutons "Ajouter"
-  document.querySelectorAll('.project-card').forEach(card=>{
-    const addBtn = card.querySelector('.add-btn');
-    if(!addBtn) return;
-    const activeType = card.querySelector('.opt-btn.active')?.dataset.type || 'original';
-    if(activeType === 'decant' && card.dataset.decantName){
-      const p = Number(card.dataset.decantPrice);
-      addBtn.dataset.title = card.dataset.decantName;
-      addBtn.dataset.price = p;
-      const priceEl = card.querySelector('.price');
-      if(priceEl) priceEl.textContent = dh(p);
-    }else{
-      const p = Number(card.dataset.originalPrice);
-      addBtn.dataset.title = card.dataset.originalName;
-      addBtn.dataset.price = p;
-      const priceEl = card.querySelector('.price');
-      if(priceEl) priceEl.textContent = dh(p);
-    }
-    addBtn.dataset.img = card.dataset.img || '';
-  });
-</script>
 </body>
 </html>
