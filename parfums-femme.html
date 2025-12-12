@@ -13,141 +13,153 @@
 
 <body>
 
-<header>
-  <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
-
-  <nav class="navigation" aria-label="Navigation principale">
-    <div class="nav-item has-dropdown">
-      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
-        Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em"></i>
-      </button>
-      <div class="dropdown" role="menu" aria-label="Choisir catégorie">
-        <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
-        <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
-      </div>
-    </div>
-
-    <a href="index.html#services">Services</a>
-    <a href="index.html#contact">Contact</a>
-
-    <form class="search-bar" id="searchForm" role="search" autocomplete="off">
-      <i class="fas fa-search icon" aria-hidden="true"></i>
-      <input type="search" id="searchInput" placeholder="Rechercher un parfum…" aria-label="Rechercher un parfum">
-      <div id="searchResults" aria-live="polite"></div>
-    </form>
-
-    <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
-      <i class="fas fa-shopping-bag"></i>
-      <span class="cart-label">Votre panier</span>
-      <span id="cartCount" class="cart-count">0</span>
-    </button>
-  </nav>
-</header>
-
-<div class="header-spacer"></div>
-
-<section class="projects" id="produits">
-  <h2 class="title">Parfums Femme</h2>
-
-  <div class="content">
-
-    <!-- LA VIE EST BELLE (décant) -->
-    <div class="project-card"
-         data-decant-price="119"
-         data-decant-name="Lancôme La Vie Est Belle (Décant 10 ml)"
-         data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
-
-      <div class="project-image">
-        <a href="lancome-la-vie-est-belle-edp-recharge.html">
-          <img loading="lazy"
-               src="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
-               alt="Lancôme La Vie Est Belle Eau de Parfum">
-        </a>
-      </div>
-
-      <div class="project-info">
-        <p class="project-category">Femme • Floral Gourmand <span class="badge decant">Décant uniquement</span></p>
-
-        <strong class="project-title"><span>Lancôme La Vie Est Belle</span></strong>
-
-        <div class="option-toggle">
-          <button type="button" class="opt-btn disabled">Original</button>
-          <button type="button" class="opt-btn active">Décant</button>
-        </div>
-
-        <div class="product-meta">
-          <span class="price">119 DH</span>
-          <button type="button" class="add-btn"
-                  data-title="Lancôme La Vie Est Belle (Décant 10 ml)"
-                  data-price="119"
-                  data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
-            <i class="fas fa-cart-plus"></i> Ajouter
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- PANIER -->
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-head">
-    <strong>Votre panier</strong>
-    <button class="cart-close" type="button" onclick="toggleCart()">
-      <i class="fas fa-times" aria-hidden="true"></i>
-    </button>
+  <div class="top-bar">
+    LIVRAISON GRATUITE DÈS 500 DH
   </div>
 
-  <div id="cartItems" class="cart-items"></div>
-
-  <div class="cart-foot">
-    <div class="totals"><span>Sous-total</span><strong id="subtotal">0 DH</strong></div>
-    <a class="checkout" href="commande.html" target="_blank" rel="noopener noreferrer">
-      <i class="fas fa-credit-card"></i> Passer la commande
+  <header>
+    <a href="index.html" class="logo" aria-label="Accueil CASAPERF">
+      𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅
     </a>
-  </div>
-</aside>
 
-<script>
-  // Format DH
-  function dh(n){
-    return Number(n).toLocaleString('fr-FR', {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }) + ' DH';
-  }
+    <nav class="navigation header-actions" aria-label="Navigation principale">
+      <div class="nav-item has-dropdown">
+        <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+          Nos Parfums <i class="fas fa-chevron-down" style="font-size:.85em" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown" role="menu" aria-label="Choisir catégorie">
+          <a href="parfums-homme.html" role="menuitem"><i class="fas fa-male"></i> Parfums Homme</a>
+          <a href="parfums-femme.html" role="menuitem"><i class="fas fa-female"></i> Parfums Femme</a>
+        </div>
+      </div>
 
-  // Gestion décant uniquement (au cas où tu ajoutes d'autres parfums femme plus tard)
-  document.addEventListener('click', function(e){
-    const btn = e.target.closest('.opt-btn');
-    if(!btn || btn.classList.contains('disabled')) return;
+      <button class="cart-btn" id="openCartBtn" type="button" aria-label="Ouvrir le panier">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-label">Votre panier</span>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
 
-    const card = btn.closest('.project-card');
-    const priceEl = card.querySelector('.price');
-    const addBtn  = card.querySelector('.add-btn');
+  <form
+    class="search-bar header-search"
+    id="searchForm"
+    autocomplete="off"
+    role="search"
+    aria-label="Recherche de parfums"
+  >
+    <i class="fas fa-search icon" aria-hidden="true"></i>
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Rechercher un parfum…"
+      aria-label="Rechercher un parfum"
+    >
+    <div id="searchResults" aria-live="polite"></div>
+  </form>
 
-    const price = Number(card.dataset.decantPrice);
+  <div class="header-spacer"></div>
 
-    if (priceEl) priceEl.textContent = dh(price);
-    if (addBtn) {
-      addBtn.dataset.title = card.dataset.decantName;
-      addBtn.dataset.price = price;
-      addBtn.dataset.img   = card.dataset.img;
+  <section class="projects" id="produits">
+    <h2 class="title">Parfums Femme</h2>
+
+    <div class="content">
+
+      <!-- LA VIE EST BELLE (décant) -->
+      <div class="project-card"
+           data-decant-price="119"
+           data-decant-name="Lancôme La Vie Est Belle (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+
+        <div class="project-image">
+          <a href="lancome-la-vie-est-belle-edp-recharge.html">
+            <img loading="lazy"
+                 src="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit"
+                 alt="Lancôme La Vie Est Belle Eau de Parfum">
+          </a>
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">Femme • Floral Gourmand <span class="badge decant">Décant uniquement</span></p>
+
+          <strong class="project-title"><span>Lancôme La Vie Est Belle</span></strong>
+
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled">Original</button>
+            <button type="button" class="opt-btn active">Décant</button>
+          </div>
+
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button type="button" class="add-btn"
+                    data-title="Lancôme La Vie Est Belle (Décant 10 ml)"
+                    data-price="119"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+              <i class="fas fa-cart-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Panier -->
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <strong>Votre panier</strong>
+      <button class="cart-close" type="button" onclick="toggleCart()" aria-label="Fermer le panier">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-foot">
+      <div class="totals"><span>Sous-total</span><strong id="subtotal">0 DH</strong></div>
+      <a class="checkout" href="commande.html" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-credit-card"></i> Passer la commande
+      </a>
+    </div>
+  </aside>
+
+  <script>
+    function dh(n){
+      return Number(n).toLocaleString('fr-FR', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }) + ' DH';
     }
-  });
 
-  // Initialisation des boutons ajouter
-  document.querySelectorAll('.project-card').forEach(card=>{
-    const addBtn = card.querySelector('.add-btn');
-    if(!addBtn) return;
+    // Init des décants (si tu ajoutes d’autres parfums femme plus tard)
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.opt-btn');
+      if(!btn || btn.classList.contains('disabled')) return;
 
-    addBtn.dataset.title = card.dataset.decantName;
-    addBtn.dataset.price = card.dataset.decantPrice;
-    addBtn.dataset.img   = card.dataset.img;
-  });
-</script>
+      const card = btn.closest('.project-card');
+      const priceEl = card.querySelector('.price');
+      const addBtn  = card.querySelector('.add-btn');
+
+      const price = Number(card.dataset.decantPrice);
+
+      if (priceEl) priceEl.textContent = dh(price);
+      if (addBtn) {
+        addBtn.dataset.title = card.dataset.decantName;
+        addBtn.dataset.price = price;
+        addBtn.dataset.img   = card.dataset.img;
+      }
+    });
+
+    document.querySelectorAll('.project-card').forEach(card=>{
+      const addBtn = card.querySelector('.add-btn');
+      if(!addBtn) return;
+
+      addBtn.dataset.title = card.dataset.decantName;
+      addBtn.dataset.price = card.dataset.decantPrice;
+      addBtn.dataset.img   = card.dataset.img;
+    });
+  </script>
 
 </body>
 </html>
