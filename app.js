@@ -510,3 +510,86 @@ if (!window.__CASAPERF_INIT__) {
 
 // Rendu initial du panier au chargement
 renderCart();
+// =========================
+// Gestion Original / Décant
+// =========================
+
+function initDecantCards() {
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    const addBtn = card.querySelector('.add-btn');
+    const priceEl = card.querySelector('.price');
+    if (!addBtn || !priceEl) return;
+
+    // Bouton actif au chargement (Original ou Décant)
+    const activeBtn = card.querySelector('.opt-btn.active');
+    const type = activeBtn?.dataset.type || 'original';
+
+    let price = 0;
+    let title = '';
+
+    if (type === 'decant') {
+      price = Number(card.dataset.decantPrice || addBtn.dataset.price || 0);
+      title = card.dataset.decantName || addBtn.dataset.title || '';
+    } else {
+      price = Number(card.dataset.originalPrice || addBtn.dataset.price || 0);
+      title = card.dataset.originalName || addBtn.dataset.title || '';
+    }
+
+    if (price) {
+      priceEl.textContent = price + ' DH';
+      addBtn.dataset.price = String(price);
+    }
+    if (title) {
+      addBtn.dataset.title = title;
+    }
+    if (card.dataset.img) {
+      addBtn.dataset.img = card.dataset.img;
+    }
+  });
+}
+
+// Click sur un bouton Original / Décant
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.opt-btn');
+  if (!btn || btn.classList.contains('disabled')) return;
+
+  const card = btn.closest('.project-card');
+  if (!card) return;
+
+  // Activer le bon bouton
+  card.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const priceEl = card.querySelector('.price');
+  const addBtn = card.querySelector('.add-btn');
+  if (!priceEl || !addBtn) return;
+
+  const type = btn.dataset.type || (btn.textContent.toLowerCase().includes('décant') ? 'decant' : 'original');
+
+  let price = 0;
+  let title = '';
+
+  if (type === 'decant') {
+    price = Number(card.dataset.decantPrice || addBtn.dataset.price || 0);
+    title = card.dataset.decantName || addBtn.dataset.title || '';
+  } else {
+    price = Number(card.dataset.originalPrice || addBtn.dataset.price || 0);
+    title = card.dataset.originalName || addBtn.dataset.title || '';
+  }
+
+  if (price) {
+    priceEl.textContent = price + ' DH';
+    addBtn.dataset.price = String(price);
+  }
+  if (title) {
+    addBtn.dataset.title = title;
+  }
+  if (card.dataset.img) {
+    addBtn.dataset.img = card.dataset.img;
+  }
+});
+
+// Initialiser au chargement de la page
+document.addEventListener('DOMContentLoaded', initDecantCards);
