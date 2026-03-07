@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7HY113T0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XE7HY113T0");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <title>Azzaro The Most Wanted Parfum | CASAPERF</title>
+  <link rel="stylesheet" href="../css/code.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    <nav class="navigation header-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        <i class="fas fa-shopping-bag"></i><span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="product-detail-wrapper">
+    <div class="product-detail-img">
+        <img src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="Azzaro The Most Wanted">
+    </div>
+
+    <div class="product-detail-info">
+        <span class="brand-label">Azzaro</span>
+        <h1>The Most Wanted Parfum</h1>
+        
+        <div class="notes-tags">
+            <span class="note-tag">🔥 Gingembre Rouge</span>
+            <span class="note-tag">🪵 Bois Incandescents</span>
+            <span class="note-tag">🍬 Caramel Bourbon</span>
+        </div>
+
+        <div class="story-box">
+            <p><strong>L'arme de séduction massive.</strong><br>
+            C'est le parfum de celui qui joue sa vie à pile ou face et gagne toujours. Une explosion addictive de caramel fondant mélangé à des bois brûlants. <br><br>
+            <em>Le vibe ?</em> Une soirée poker qui finit au lever du soleil. Intense, gourmand, impossible à ignorer. Durée de vie monstrueuse sur la peau.</p>
+        </div>
+
+        <h3>Format disponible :</h3>
+        <div class="variant-list">
+            
+            <div class="variant-row">
+                <div class="variant-info">
+                    <strong>Flacon COMPLET (100 ml)</strong>
+                    <span>Original scellé</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price">1 000 DH</span>
+                    <button class="variant-btn-small add-btn" data-title="Azzaro Most Wanted (100ml)" data-price="1000" data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">Ajouter</button>
+                </div>
+            </div>
+
+            <div class="variant-row">
+                <div class="variant-info">
+                    <strong>Décant 10 ml</strong>
+                    <span>Testez la légende</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price">119 DH</span>
+                    <button class="variant-btn-small add-btn" data-title="Azzaro Most Wanted (Décant 10ml)" data-price="119" data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">Ajouter</button>
+                </div>
+            </div>
+
+            <div class="variant-row">
+                <div class="variant-info">
+                    <strong>Décant 30 ml</strong>
+                    <span>Le format poche idéal</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price">357 DH</span>
+                    <button class="variant-btn-small add-btn" data-title="Azzaro Most Wanted (Décant 30ml)" data-price="357" data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">Ajouter</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <div class="cart-drawer">
+    <div class="cart-header"><h3>Panier</h3><button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button></div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="subtotal"><span>Total</span><span id="subtotal">0 DH</span></div>
+        <a href="commande.html" class="checkout-btn">Commander</a>
+    </div>
+  </div>
+
+</body>
+</html>
+

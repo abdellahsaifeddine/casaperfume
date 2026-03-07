@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rue Broca Théorème Matrix | CASAPERF</title>
+  <link rel="stylesheet" href="code.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    <nav class="navigation header-actions">
+      <button class="cart-btn" onclick="toggleCart()"><i class="fas fa-shopping-bag"></i><span id="cartCount" class="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <section class="product-detail-wrapper">
+    <div class="product-detail-img">
+        <img src="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1" alt="Théorème Matrix" style="opacity: 0.9;">
+    </div>
+
+    <div class="product-detail-info">
+        <span class="brand-label">Rue Broca (Armaf)</span>
+        <h1>Théorème Matrix EDP</h1>
+        
+        <div class="notes-tags">
+            <span class="note-tag">🧥 Cuir Suave</span>
+            <span class="note-tag">🪵 Bois Précieux</span>
+            <span class="note-tag">🌫️ Ambre Profond</span>
+        </div>
+
+        <div class="story-box">
+            <p><strong>L'élégance sombre et mystérieuse.</strong><br>
+            Contrairement à son grand frère classique, le Matrix joue la carte de la profondeur. C'est une composition riche centrée sur un cuir sophistiqué et des bois chaleureux.<br><br>
+            C'est le parfum de l'homme confiant qui n'a pas besoin d'en faire trop pour se faire remarquer. Un sillage enveloppant, charismatique et d'une tenue remarquable.</p>
+        </div>
+
+        <h3 style="color: #ef4444; margin-top: 1rem;">⚠️ Actuellement en rupture</h3>
+        <div class="variant-list">
+            <div class="variant-row" style="border-color: #e5e7eb; background: #f9fafb;">
+                <div class="variant-info">
+                    <strong>Flacon COMPLET (100 ml)</strong>
+                    <span style="color: #ef4444; font-weight:600;">Épuisé</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price" style="color: #9ca3af;">380 DH</span>
+                    <button class="variant-btn-small add-btn" disabled 
+                            style="background-color: #9ca3af; cursor: not-allowed; opacity: 0.7;">
+                        Rupture
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: #6b7280;">
+            Ce produit est victime de son succès. Revenez bientôt !
+        </p>
+    </div>
+  </section>
+
+  <div class="cart-drawer">
+    <div class="cart-header"><h3>Panier</h3><button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button></div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="subtotal"><span>Total</span><span id="subtotal">0 DH</span></div>
+        <a href="commande.html" class="checkout-btn">Commander</a>
+    </div>
+  </div>
+
+</body>
+</html>

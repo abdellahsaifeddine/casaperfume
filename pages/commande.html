@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7HY113T0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XE7HY113T0");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finaliser la commande | CASAPERF</title>
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../css/code.css">
+  <style>
+    body { background: #f3f4f6; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .checkout-container { background: #fff; width: 100%; max-width: 500px; padding: 2rem; border-radius: 20px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    h1 { text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    p.subtitle { text-align: center; color: #6b7280; margin-bottom: 2rem; font-size: 0.9rem; }
+    
+    .order-summary { background: #f9fafb; padding: 1rem; border-radius: 12px; margin-bottom: 2rem; border: 1px dashed #e5e7eb; }
+    .summary-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .summary-total { display: flex; justify-content: space-between; font-weight: 700; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 1.1rem; }
+
+    form label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem; color: #374151; }
+    form input, form textarea { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; margin-bottom: 1.2rem; font-family: inherit; transition: 0.2s; }
+    form input:focus, form textarea:focus { border-color: #000; outline: none; box-shadow: 0 0 0 3px rgba(0,0,0,0.05); }
+    
+    button[type="submit"] { width: 100%; background: #25D366; color: #fff; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; margin-top: 1rem; }
+    button[type="submit"]:hover { background: #1ebc57; }
+    
+    .back-link { display: block; text-align: center; margin-top: 1.5rem; color: #6b7280; font-size: 0.85rem; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <h1>Finaliser votre commande</h1>
+    <p class="subtitle">Complétez vos informations pour recevoir votre parfum.</p>
+
+    <div class="order-summary">
+        <div id="summaryItems"></div>
+        <div class="summary-total">
+            <span>Total à payer</span>
+            <span id="summaryTotal">0 DH</span>
+        </div>
+    </div>
+
+    <form id="orderForm">
+        <label>Nom complet</label>
+        <input type="text" id="nom" required placeholder="Ex: Amine Bennani">
+
+        <label>Téléphone (WhatsApp)</label>
+        <input type="tel" id="tel" required placeholder="Ex: 06 12 34 56 78">
+
+        <label>Ville & Adresse</label>
+        <textarea id="adresse" rows="2" required placeholder="Ex: Maarif, Casablanca..."></textarea>
+
+        <button type="submit">Valider sur WhatsApp <i class="fab fa-whatsapp"></i></button>
+    </form>
+    
+    <a href="../index.html" class="back-link">← Retourner à la boutique</a>
+  </div>
+
+<script>
+    const CART_KEY = "casaperf_cart_v2";
+    const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    
+    // Si panier vide
+    if(items.length === 0) {
+        alert("Votre panier est vide.");
+        window.location.href = "index.html";
+    }
+
+    // Affichage résumé
+    const summaryDiv = document.getElementById("summaryItems");
+    let total = 0;
+    
+    items.forEach(item => {
+        total += item.price * item.qty;
+        const div = document.createElement("div");
+        div.className = "summary-row";
+        div.innerHTML = `<span>${item.qty}x ${item.title}</span> <span>${item.price * item.qty} DH</span>`;
+        summaryDiv.appendChild(div);
+    });
+    
+    document.getElementById("summaryTotal").textContent = total + " DH";
+
+    // Envoi WhatsApp
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const nom = document.getElementById("nom").value;
+        const tel = document.getElementById("tel").value;
+        const adr = document.getElementById("adresse").value;
+        
+        let msg = `*NOUVELLE COMMANDE CASAPERF* 🛍️\n\n`;
+        msg += `👤 *Client:* ${nom}\n`;
+        msg += `📞 *Tél:* ${tel}\n`;
+        msg += `📍 *Adresse:* ${adr}\n\n`;
+        msg += `*ARTICLES :*\n`;
+        
+        items.forEach(i => {
+            msg += `- ${i.qty}x ${i.title} (${i.price * i.qty} DH)\n`;
+        });
+        
+        msg += `\n💰 *TOTAL : ${total} DH*`;
+        
+        // Remplace par TON numéro WhatsApp (sans le +)
+        const phone = "212625149343"; 
+        
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        
+        // Vider panier après commande
+        localStorage.removeItem(CART_KEY);
+        
+        window.open(url, '_blank');
+        window.location.href = "index.html";
+    });
+</script>
+
+</body>
+</html>
+

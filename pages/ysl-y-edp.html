@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7HY113T0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XE7HY113T0");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YSL Y – Eau de Parfum | CASAPERF</title>
+  <link rel="stylesheet" href="../css/code.css">
+  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <a href="../index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    <nav class="navigation header-actions">
+      <button class="cart-btn" onclick="toggleCart()">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="product-detail-wrapper">
+    <div class="product-detail-img">
+        <img src="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="YSL Y Eau de Parfum">
+    </div>
+
+    <div class="product-detail-info">
+        <span class="brand-label">Yves Saint Laurent</span>
+        <h1>Y Eau de Parfum</h1>
+        
+        <div class="notes-tags">
+            <span class="note-tag">🍏 Pomme Croquante</span>
+            <span class="note-tag">⚡ Gingembre</span>
+            <span class="note-tag">🪵 Bois Ambrés</span>
+        </div>
+
+        <div class="story-box">
+            <p><strong>L'odeur du succès moderne.</strong><br>
+            Oubliez les classiques de papa. Y EDP, c'est le parfum de celui qui ose et qui réussit. Une ouverture tranchante et fraîche (pomme/gingembre) qui réveille instantanément, suivie d'un fond sombre et élégant.<br><br>
+            <em>Le vibe ?</em> C'est le "t-shirt blanc sous une veste de costume". Propre, sexy et ultra-polyvalent. Il passe aussi bien pour signer un contrat important que pour un date en terrasse. Tenue nucléaire garantie.</p>
+        </div>
+
+        <h3>Choisir votre format (Décants) :</h3>
+        <div class="variant-list">
+            
+            <div class="variant-row">
+                <div class="variant-info">
+                    <strong>Décant 10 ml</strong>
+                    <span>Format découverte / Voyage</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price">119 DH</span>
+                    <button class="variant-btn-small add-btn" 
+                        data-title="YSL Y EDP (Décant 10 ml)" 
+                        data-price="119"
+                        data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <div class="variant-row">
+                <div class="variant-info">
+                    <strong>Décant 30 ml</strong>
+                    <span>Le best-seller</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price">357 DH</span>
+                    <button class="variant-btn-small add-btn" 
+                        data-title="YSL Y EDP (Décant 30 ml)" 
+                        data-price="357"
+                        data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+             <div class="variant-row">
+                <div class="variant-info">
+                    <strong>Décant 50 ml</strong>
+                    <span>Durée maximale</span>
+                </div>
+                <div class="variant-action">
+                    <span class="variant-price">590 DH</span>
+                    <button class="variant-btn-small add-btn" 
+                        data-title="YSL Y EDP (Décant 50 ml)" 
+                        data-price="590"
+                        data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Votre Panier</h3>
+      <button class="close-cart" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="subtotal">
+            <span>Total</span>
+            <span id="subtotal">0 DH</span>
+        </div>
+        <a href="commande.html" class="checkout-btn">Commander</a>
+    </div>
+  </div>
+
+</body>
+</html>
+

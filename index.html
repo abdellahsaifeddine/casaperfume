@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7HY113T0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-XE7HY113T0");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASAPERF — Parfums d’exception</title>
+  <meta name="description" content="Parfums de luxe et décants authentiques au Maroc.">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="js/app.js" defer></script>
+
+  <style>
+    /* STYLE MODIFIÉ : BLOC SOUS L'IMAGE */
+    .promo-container {
+      margin: 2rem auto 4rem; /* Marges aérées */
+      max-width: 800px; /* On limite la largeur pour que ça reste élégant sur PC */
+    }
+    
+    .promo-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .promo-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* La carte passe EN DESSOUS */
+    .promo-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-top: 1rem; /* Espace entre l'image et le bouton */
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      text-align: center;
+      position: relative;
+    }
+
+    .promo-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    .promo-desc {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Le bouton prend toute la largeur pour un clic facile */
+    .promo-btn {
+      background: #111827;
+      color: #fff;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      transition: transform 0.2s, background 0.2s;
+      font-size: 1rem;
+    }
+    
+    .promo-btn:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .promo-btn:active {
+      transform: scale(0.98);
+    }
+
+    .promo-price-tag {
+      background: #eab308;
+      color: #000;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">Livraison Gratuite dès 500 DH</div>
+
+  <header>
+    <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    
+    <div class="header-search">
+        <form class="search-bar" onclick="return false;">
+            <i class="fas fa-search" style="color:#9ca3af"></i>
+            <input type="text" id="searchInput" placeholder="Rechercher un parfum (ex: Scandal)...">
+        </form>
+        <div id="searchResults"></div>
+    </div>
+
+    <nav class="navigation header-actions">
+      <div class="nav-item">
+        <button class="nav-link">Nos Parfums <i class="fas fa-chevron-down"></i></button>
+        <div class="dropdown">
+          <a href="pages/parfums-homme.html">Parfums Homme</a>
+          <a href="pages/parfums-femme.html">Parfums Femme</a>
+        </div>
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="main-container promo-container">
+    
+    <div class="promo-image">
+        <img src="images/back1.jpeg" alt="Offre Spéciale 30ml" loading="eager">
+    </div>
+
+    <div class="promo-card">
+        <div class="promo-title">🔥 Offre Exclusive Limitée</div>
+        <p class="promo-desc">Profitez de vos parfums préférés en format 30ml à prix exceptionnel.</p>
+        
+        <button class="add-btn promo-btn"
+                data-title="Promo Spéciale (Pack 30ml)"
+                data-price="350"
+                data-img="images/back1.jpeg">
+            <span>Ajouter l'offre au panier</span>
+            <span class="promo-price-tag">350 DH</span>
+        </button>
+    </div>
+
+  </div>
+
+  <section class="projects main-container" id="produits">
+    <h2 class="title">Nos Best-Sellers</h2>
+    <div class="content">
+
+      <div class="project-card"
+           data-original-price="1000" data-original-name="Azzaro The Most Wanted (100ml)"
+           data-decant-price="119" data-decant-name="Azzaro The Most Wanted (Décant 10ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+            <a href="pages/azzaro-the-most-wanted-parfum.html">
+                <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="Azzaro">
+            </a>
+        </div>
+        <div class="project-info">
+            <div class="project-category">Homme <span class="badge original">Original</span><span class="badge decant">Décant</span></div>
+
+            <div class="project-title"><span>Azzaro The Most Wanted Parfum</span></div>
+            
+            <div class="option-toggle">
+                <button type="button" class="opt-btn active" data-type="original">Original</button>
+                <button type="button" class="opt-btn" data-type="decant">Décant</button>
+            </div>
+            
+            <div class="product-meta">
+                <span class="price">1 000 DH</span>
+                <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="project-card"
+           data-decant-price="119" data-decant-name="JPG Scandal EDP (Décant 10ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+            <a href="pages/jean-paul-gaultier-scandal-edp.html">
+                <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="JPG Scandal">
+            </a>
+        </div>
+        <div class="project-info">
+            <div class="project-category">Homme <span class="badge original">Original</span> <span class="badge decant">Décant</span></div>
+            <div class="project-title"><span>Jean Paul Gaultier Scandal</span></div>
+            
+            <div class="option-toggle">
+                <button type="button" class="opt-btn disabled">Original</button>
+                <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+            </div>
+            
+            <div class="product-meta">
+                <span class="price">119 DH</span>
+                <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
+            </div>
+        </div>
+      </div>
+<div class="project-card"
+     data-original-price="300"
+     data-original-name="Khadlaj Shiyaaka Blue (Flacon 100 ml)"
+     data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
+  
+  <div class="project-image">
+    <a href="pages/KhadlajShiyaakaBlue.html">
+      <img loading="lazy" 
+           src="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg" 
+           alt="Khadlaj Shiyaaka Blue">
+    </a>
+  </div>
+
+  <div class="project-info">
+    <p class="project-category">Homme <span class="badge original">Original</span></p>
+    <strong class="project-title"><span>Khadlaj Shiyaaka Blue</span></strong>
+
+    <div class="option-toggle">
+      <button type="button" class="opt-btn active" data-type="original" style="width:100%; cursor:default;">Original</button>
+    </div>
+
+    <div class="product-meta">
+      <span class="price">300 DH</span>
+      <button class="add-btn" 
+              data-title="Khadlaj Shiyaaka Blue (100ml)"
+              data-price="300"
+              data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
+        <i class="fas fa-plus"></i> Ajouter
+      </button>
+    </div>
+  </div>
+</div>
+     
+
+       <div class="project-card"
+            data-decant-price="119" data-decant-name="YSL Y EDP (Décant 10ml)"
+            data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+            <a href="pages/ysl-y-edp.html">
+                <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="YSL Y">
+            </a>
+        </div>
+        <div class="project-info">
+            <div class="project-category">Homme <span class="badge original">Original</span> <span class="badge decant">Décant</span></div>
+            <div class="project-title"><span>Yves Saint Laurent Y EDP</span></div>
+            
+            <div class="option-toggle">
+                <button type="button" class="opt-btn disabled">Original</button>
+                <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+            </div>
+            
+            <div class="product-meta">
+                <span class="price">119 DH</span>
+                <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p id="secret-trigger" style="cursor:default;">© CASAPERF — Tous droits réservés</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/perfumestory.ma/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@perfumestory.ma" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Raccourci secret : 5 clics rapides sur le copyright
+    let secretClicks = 0, secretTimer;
+    document.getElementById('secret-trigger').addEventListener('click', () => {
+      secretClicks++;
+      clearTimeout(secretTimer);
+      secretTimer = setTimeout(() => { secretClicks = 0; }, 2000);
+      if (secretClicks >= 5) {
+        secretClicks = 0;
+        window.location.href = 'pages/admin.html';
+      }
+    });
+  </script>
+
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Votre Panier</h3>
+      <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="subtotal">
+            <span>Total</span>
+            <span id="subtotal">0 DH</span>
+        </div>
+        <a href="pages/commande.html" class="checkout-btn">Commander sur WhatsApp</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+

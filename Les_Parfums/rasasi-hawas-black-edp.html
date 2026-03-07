@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasasi Hawas Black | CASAPERF</title>
+  <link rel="stylesheet" href="code.css">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">𝐂 𝐀 𝐒 𝐀 𝐏 𝐄 𝐑 𝐅</a>
+    <nav class="navigation header-actions">
+      <button class="cart-btn" onclick="toggleCart()"><i class="fas fa-shopping-bag"></i><span id="cartCount" class="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <section class="product-detail-wrapper">
+    <div class="product-detail-img">
+        <img src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif" alt="Rasasi Hawas Black">
+    </div>
+
+    <div class="product-detail-info">
+        <span class="brand-label">Rasasi</span>
+        <h1>Hawas Black</h1>
+        
+        <div class="notes-tags">
+            <span class="note-tag">🌊 Notes Marines Sombres</span>
+            <span class="note-tag">🍏 Pomme Croquante</span>
+            <span class="note-tag">🌲 Cèdre & Ambre</span>
+        </div>
+
+        <div class="story-box">
+            <p><strong>La légende de Dubaï, version nuit.</strong><br>
+            Si le Hawas original est une fête sur la plage en plein jour, le "Black" est la soirée VIP qui suit sur un yacht. <br><br>
+            C'est frais, mais avec une profondeur mystérieuse qui attire les compliments comme un aimant. Moins fruité, plus masculin, plus "bad boy". Une tenue exceptionnelle pour le prix.</p>
+        </div>
+
+        <h3>Format disponible :</h3>
+        <div class="variant-list">
+            <div class="variant-row">
+                <div class="variant-info"><strong>Flacon 100 ml (Original)</strong><span>Scellé</span></div>
+                <div class="variant-action">
+                    <span class="variant-price">390 DH</span>
+                    <button class="variant-btn-small add-btn" data-title="Rasasi Hawas Black (100ml)" data-price="390" data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">Ajouter</button>
+                </div>
+            </div>
+            <div class="variant-row">
+                <div class="variant-info"><strong>Décant 10 ml</strong><span>Découverte</span></div>
+                <div class="variant-action">
+                    <span class="variant-price">50 DH</span>
+                    <button class="variant-btn-small add-btn" data-title="Rasasi Hawas Black (Décant 10ml)" data-price="50" data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <div class="cart-drawer">
+    <div class="cart-header"><h3>Panier</h3><button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button></div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="subtotal"><span>Total</span><span id="subtotal">0 DH</span></div>
+        <a href="commande.html" class="checkout-btn">Commander</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
