@@ -77,24 +77,31 @@ function renderCart() {
 
     const div = document.createElement("div");
     div.className = "cart-item";
-    
+
     // Sécurité : on échappe toutes les valeurs issues de localStorage (anti-XSS)
     const safeTitle = escapeHTML(item.title);
     const safePrice = formatCurrency(item.price);
     const safeQty   = Math.min(Math.max(1, parseInt(item.qty) || 1), 99);
     const safeImg   = /^https?:\/\//.test(item.img) ? escapeHTML(item.img) : 'https://via.placeholder.com/70';
 
-    div.innerHTML = `
-      <img src="${safeImg}" alt="${safeTitle}">
-      <div class="item-details">
-        <div class="item-title">${safeTitle}</div>
-        <div class="item-price">${safePrice}</div>
-        <div class="item-controls">
-          <input type="number" class="qty-input" value="${safeQty}" min="1" max="99">
-          <button class="remove-btn">Supprimer</button>
-        </div>
+    // On construit le HTML avec les valeurs assainies
+    const img = document.createElement("img");
+    img.src = safeImg;
+    img.alt = safeTitle;
+
+    const details = document.createElement("div");
+    details.className = "item-details";
+    details.innerHTML = `
+      <div class="item-title">${safeTitle}</div>
+      <div class="item-price">${safePrice}</div>
+      <div class="item-controls">
+        <input type="number" class="qty-input" value="${safeQty}" min="1" max="99">
+        <button class="remove-btn">Supprimer</button>
       </div>
     `;
+
+    div.appendChild(img);
+    div.appendChild(details);
 
     // Events
     div.querySelector(".qty-input").addEventListener("change", (e) => updateQty(item.title, e.target.value));
@@ -210,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const resultsBox = document.getElementById("searchResults");
   
-  // LISTE DES PRODUITS (MISE À JOUR)
+  // LISTE DES PRODUITS (À METTRE À JOUR MANUELLEMENT)
   const PRODUCTS_DB = [
     { name: "Azzaro The Most Wanted Parfum", url: "azzaro-the-most-wanted-parfum.html" },
     { name: "Lancôme La Vie Est Belle", url: "lancome-la-vie-est-belle-edp-recharge.html" },
@@ -218,8 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "YSL MYSLF", url: "ysl-myslf-edp.html" },
     { name: "Rasasi Hawas Black", url: "rasasi-hawas-black-edp.html" },
     { name: "Rue Broca Théorème Matrix", url: "rue-broca-theoreme-matrix-edp.html" },
-    { name: "Jean Paul Gaultier Scandal", url: "jean-paul-gaultier-scandal-edp.html" },
-    { name: "Khadlaj Shiyaaka Blue", url: "khadlaj-shiyaaka-blue.html" } // Ajouté ici
+    { name: "Jean Paul Gaultier Scandal", url: "jean-paul-gaultier-scandal-edp.html" }
   ];
 
   if(searchInput) {
