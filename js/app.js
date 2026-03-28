@@ -128,28 +128,11 @@ function renderCart() {
 
 // ================== INTERFACE ==================
 
-function openCart() { document.body.classList.add("cart-open"); overlay.style.display = "block"; }
-function closeCart() { document.body.classList.remove("cart-open"); overlay.style.display = "none"; }
+let overlay;
+
+function openCart() { document.body.classList.add("cart-open"); if(overlay) overlay.style.display = "block"; }
+function closeCart() { document.body.classList.remove("cart-open"); if(overlay) overlay.style.display = "none"; }
 window.toggleCart = function() { document.body.classList.contains("cart-open") ? closeCart() : openCart(); };
-
-// Bloque le bouton Commander si le panier est vide
-document.addEventListener("DOMContentLoaded", () => {
-  const checkoutBtn = document.querySelector(".checkout-btn");
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", (e) => {
-      if (state.items.length === 0) {
-        e.preventDefault();
-        flashToast("⚠️ Votre panier est vide !");
-      }
-    });
-  }
-});
-
-const overlay = document.createElement("div");
-overlay.className = "cart-overlay";
-overlay.style.display = "none";
-document.body.appendChild(overlay);
-overlay.addEventListener("click", closeCart);
 
 function flashToast(message) {
   const toast = document.createElement("div");
@@ -170,6 +153,24 @@ function flashToast(message) {
 // ================== INITIALISATION ==================
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Création de l'overlay panier
+  overlay = document.createElement("div");
+  overlay.className = "cart-overlay";
+  overlay.style.display = "none";
+  document.body.appendChild(overlay);
+  overlay.addEventListener("click", closeCart);
+
+  // Bloque le bouton Commander si le panier est vide
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", (e) => {
+      if (state.items.length === 0) {
+        e.preventDefault();
+        flashToast("⚠️ Votre panier est vide !");
+      }
+    });
+  }
+
   renderCart();
 
   document.body.addEventListener("click", (e) => {
@@ -293,4 +294,3 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
-
