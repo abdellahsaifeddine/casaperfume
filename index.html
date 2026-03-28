@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CASAPERF — Parfums d’exception</title>
   <meta name="description" content="Parfums de luxe et décants authentiques au Maroc.">
+  <!-- Sécurité : Content Security Policy — bloque les scripts/images non autorisés -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+    img-src 'self' data: https://media.sephora.eu https://cdn.notinoimg.com https://fimgs.net https://www.parfumsetmoi.fr https://via.placeholder.com;
+    font-src 'self' https://cdnjs.cloudflare.com;
+    connect-src 'none';
+    frame-src 'none';
+    object-src 'none';
+  ">
+  <!-- Sécurité : empêche le clickjacking -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <!-- Sécurité : force le type MIME déclaré -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="code.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -13,8 +28,8 @@
   <style>
     /* STYLE MODIFIÉ : BLOC SOUS L'IMAGE */
     .promo-container {
-      margin: 2rem auto 4rem; 
-      max-width: 800px; 
+      margin: 2rem auto 4rem; /* Marges aérées */
+      max-width: 800px; /* On limite la largeur pour que ça reste élégant sur PC */
     }
     
     .promo-image {
@@ -36,7 +51,7 @@
       border: 1px solid #e5e7eb;
       border-radius: 20px;
       padding: 1.5rem;
-      margin-top: 1rem; 
+      margin-top: 1rem; /* Espace entre l'image et le bouton */
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
       text-align: center;
       position: relative;
@@ -122,6 +137,7 @@
   </header>
 
   <div class="main-container promo-container">
+    
     <div class="promo-image">
         <img src="back1.jpeg" alt="Offre Spéciale 30ml" loading="eager">
     </div>
@@ -138,6 +154,7 @@
             <span class="promo-price-tag">350 DH</span>
         </button>
     </div>
+
   </div>
 
   <section class="projects main-container" id="produits">
@@ -155,11 +172,14 @@
         </div>
         <div class="project-info">
             <div class="project-category">Homme <span class="badge original">Original</span><span class="badge decant">Décant</span></div>
+
             <div class="project-title"><span>Azzaro The Most Wanted Parfum</span></div>
+            
             <div class="option-toggle">
                 <button type="button" class="opt-btn active" data-type="original">Original</button>
                 <button type="button" class="opt-btn" data-type="decant">Décant</button>
             </div>
+            
             <div class="product-meta">
                 <span class="price">1 000 DH</span>
                 <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
@@ -178,68 +198,53 @@
         <div class="project-info">
             <div class="project-category">Homme <span class="badge original">Original</span> <span class="badge decant">Décant</span></div>
             <div class="project-title"><span>Jean Paul Gaultier Scandal</span></div>
+            
             <div class="option-toggle">
                 <button type="button" class="opt-btn disabled">Original</button>
                 <button type="button" class="opt-btn active" data-type="decant">Décant</button>
             </div>
+            
             <div class="product-meta">
                 <span class="price">119 DH</span>
                 <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
             </div>
         </div>
       </div>
+<div class="project-card"
+     data-original-price="300"
+     data-original-name="Khadlaj Shiyaaka Blue (Flacon 100 ml)"
+     data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
+  
+  <div class="project-image">
+    <a href="KhadlajShiyaakaBlue.html">
+      <img loading="lazy" 
+           src="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg" 
+           alt="Khadlaj Shiyaaka Blue">
+    </a>
+  </div>
 
-      <div class="project-card"
-           data-original-price="300"
-           data-original-name="Khadlaj Shiyaaka Blue (Flacon 100 ml)"
-           data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
-        <div class="project-image">
-          <a href="khadlaj-shiyaaka-blue.html">
-            <img loading="lazy" src="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg" alt="Khadlaj Shiyaaka Blue">
-          </a>
-        </div>
-        <div class="project-info">
-          <p class="project-category">Homme <span class="badge original">Original</span></p>
-          <strong class="project-title"><span>Khadlaj Shiyaaka Blue</span></strong>
-          <div class="option-toggle">
-            <button type="button" class="opt-btn active" data-type="original" style="width:100%; cursor:default;">Original</button>
-          </div>
-          <div class="product-meta">
-            <span class="price">300 DH</span>
-            <button class="add-btn" 
-                    data-title="Khadlaj Shiyaaka Blue (100ml)"
-                    data-price="300"
-                    data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
-              <i class="fas fa-plus"></i> Ajouter
-            </button>
-          </div>
-        </div>
-      </div>
+  <div class="project-info">
+    <p class="project-category">Homme <span class="badge original">Original</span></p>
+    <strong class="project-title"><span>Khadlaj Shiyaaka Blue</span></strong>
 
-      <div class="project-card"
-           data-original-price="390" data-original-name="Rasasi Hawas Black (100ml)"
-           data-decant-price="50" data-decant-name="Rasasi Hawas Black (Décant 10ml)"
-           data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">
-        <div class="project-image">
-            <a href="rasasi-hawas-black-edp.html">
-                <img loading="lazy" src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif" alt="Rasasi Hawas Black">
-            </a>
-        </div>
-        <div class="project-info">
-            <div class="project-category">Homme <span class="badge original">Original</span> <span class="badge decant">Décant</span></div>
-            <div class="project-title"><span>Rasasi Hawas Black EDP</span></div>
-            <div class="option-toggle">
-                <button type="button" class="opt-btn active" data-type="original">Original</button>
-                <button type="button" class="opt-btn" data-type="decant">Décant</button>
-            </div>
-            <div class="product-meta">
-                <span class="price">390 DH</span>
-                <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
-            </div>
-        </div>
-      </div>
+    <div class="option-toggle">
+      <button type="button" class="opt-btn active" data-type="original" style="width:100%; cursor:default;">Original</button>
+    </div>
 
-      <div class="project-card"
+    <div class="product-meta">
+      <span class="price">300 DH</span>
+      <button class="add-btn" 
+              data-title="Khadlaj Shiyaaka Blue (100ml)"
+              data-price="300"
+              data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
+        <i class="fas fa-plus"></i> Ajouter
+      </button>
+    </div>
+  </div>
+</div>
+     
+
+       <div class="project-card"
             data-decant-price="119" data-decant-name="YSL Y EDP (Décant 10ml)"
             data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
         <div class="project-image">
@@ -250,10 +255,12 @@
         <div class="project-info">
             <div class="project-category">Homme <span class="badge original">Original</span> <span class="badge decant">Décant</span></div>
             <div class="project-title"><span>Yves Saint Laurent Y EDP</span></div>
+            
             <div class="option-toggle">
                 <button type="button" class="opt-btn disabled">Original</button>
                 <button type="button" class="opt-btn active" data-type="decant">Décant</button>
             </div>
+            
             <div class="product-meta">
                 <span class="price">119 DH</span>
                 <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
@@ -261,6 +268,7 @@
         </div>
       </div>
 
+      <!-- YSL MYSLF -->
       <div class="project-card"
            data-decant-price="119"
            data-decant-name="YSL MYSLF EDP (Décant 10 ml)"
@@ -271,17 +279,17 @@
           </a>
         </div>
         <div class="project-info">
-          <p class="project-category">Homme <span class="badge decant">Décant</span></p>
-          <strong class="project-title"><span>YSL MYSLF EDP</span></strong>
+          <div class="project-category">Homme <span class="badge original">Original</span><span class="badge decant">Décant</span></div>
+          <div class="project-title"><span>YSL MYSLF EDP</span></div>
           <div class="option-toggle">
             <button type="button" class="opt-btn disabled">Original</button>
             <button type="button" class="opt-btn active" data-type="decant">Décant</button>
           </div>
           <div class="product-meta">
             <span class="price">119 DH</span>
-            <button class="add-btn" 
-                    data-title="YSL MYSLF (Décant 10 ml)" 
-                    data-price="119" 
+            <button class="add-btn"
+                    data-title="YSL MYSLF (Décant 10 ml)"
+                    data-price="119"
                     data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg">
               <i class="fas fa-plus"></i> Ajouter
             </button>
@@ -289,6 +297,33 @@
         </div>
       </div>
 
+      <!-- Rasasi Hawas Black -->
+      <div class="project-card"
+           data-original-price="390"
+           data-decant-price="50"
+           data-original-name="Rasasi Hawas Black (Flacon complet)"
+           data-decant-name="Rasasi Hawas Black (Décant 10 ml)"
+           data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">
+        <div class="project-image">
+          <a href="rasasi-hawas-black-edp.html">
+            <img loading="lazy" src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif" alt="Rasasi Hawas Black">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Homme <span class="badge original">Original</span></p>
+          <div class="project-title"><span>Rasasi Hawas Black EDP</span></div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original">Original</button>
+            <button type="button" class="opt-btn" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">390 DH</span>
+            <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rue Broca Théorème Matrix (Épuisé) -->
       <div class="project-card"
            data-original-price="380"
            data-original-name="Rue Broca Théorème Matrix EDP"
@@ -300,7 +335,7 @@
         </div>
         <div class="project-info">
           <p class="project-category">Homme <span class="badge" style="background:#ef4444; color:white;">Rupture</span></p>
-          <strong class="project-title"><span>Rue Broca Théorème Matrix</span></strong>
+          <div class="project-title"><span>Rue Broca Théorème Matrix</span></div>
           <div class="option-toggle">
             <button type="button" class="opt-btn active" data-type="original" style="width:100%; cursor:default;">Original</button>
           </div>
@@ -308,6 +343,35 @@
             <span class="price" style="color:#9ca3af">380 DH</span>
             <button class="add-btn" disabled style="background:#9ca3af; cursor:not-allowed;">
               <i class="fas fa-times"></i> Épuisé
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lancôme La Vie Est Belle (Femme) -->
+      <div class="project-card"
+           data-decant-price="119"
+           data-decant-name="Lancôme La Vie Est Belle (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+          <a href="lancome-la-vie-est-belle-edp-recharge.html">
+            <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="Lancôme La Vie Est Belle">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Femme • Floral Gourmand <span class="badge decant">Décant</span></p>
+          <div class="project-title"><span>Lancôme La Vie Est Belle</span></div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled">Original</button>
+            <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button class="add-btn"
+                    data-title="Lancôme La Vie Est Belle (Décant 10 ml)"
+                    data-price="119"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+              <i class="fas fa-plus"></i> Ajouter
             </button>
           </div>
         </div>
@@ -341,3 +405,9 @@
 
 </body>
 </html>
+
+
+
+
+
+
