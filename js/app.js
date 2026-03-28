@@ -128,8 +128,8 @@ function renderCart() {
 
 // ================== INTERFACE ==================
 
-function openCart() { document.body.classList.add("cart-open"); }
-function closeCart() { document.body.classList.remove("cart-open"); }
+function openCart() { document.body.classList.add("cart-open"); overlay.style.display = "block"; }
+function closeCart() { document.body.classList.remove("cart-open"); overlay.style.display = "none"; }
 window.toggleCart = function() { document.body.classList.contains("cart-open") ? closeCart() : openCart(); };
 
 // Bloque le bouton Commander si le panier est vide
@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const overlay = document.createElement("div");
 overlay.className = "cart-overlay";
+overlay.style.display = "none";
 document.body.appendChild(overlay);
 overlay.addEventListener("click", closeCart);
 
