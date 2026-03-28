@@ -258,4 +258,29 @@ document.addEventListener("DOMContentLoaded", () => {
           if(!e.target.closest(".header-search")) resultsBox.style.display = "none";
       });
   }
+  // ==========================================
+  // SECRET ADMIN : TRIPLE CLIC SUR LE FOOTER
+  // ==========================================
+  const secretAdminBtn = document.getElementById("secret-admin");
+  if (secretAdminBtn) {
+    let clickCount = 0;
+    let clickTimer;
+
+    secretAdminBtn.addEventListener("click", () => {
+      clickCount++;
+      clearTimeout(clickTimer); // On réinitialise le chrono à chaque clic
+
+      if (clickCount === 3) {
+        // Au bout de 3 clics, on redirige vers ta page secrète !
+        // ⚠️ REMPLACE "admin.html" PAR LE VRAI LIEN DE TES STATISTIQUES ⚠️
+        window.location.href = "admin.html"; 
+        clickCount = 0;
+      } else {
+        // Si tu t'arrêtes de cliquer pendant 1 seconde, le compteur retombe à 0
+        clickTimer = setTimeout(() => {
+          clickCount = 0;
+        }, 1000);
+      }
+    });
+  }
 });
