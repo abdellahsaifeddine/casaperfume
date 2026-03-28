@@ -1,3 +1,24 @@
+// ================== TRACKING EVENTS ==================
+
+const EVENTS_KEY = "casaperf_events";
+const SESSION_ID = Math.random().toString(36).slice(2, 10);
+
+function trackEvent(type, data = {}) {
+  try {
+    const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || "[]");
+    events.push({
+      type,
+      ts: new Date().toISOString(),
+      page: window.location.pathname,
+      session: SESSION_ID,
+      ...data
+    });
+    // Garde max 1000 events
+    if (events.length > 1000) events.splice(0, events.length - 1000);
+    localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
+  } catch(e) {}
+}
+
 // ================== CONFIGURATION & UTILITAIRES ==================
 
 function formatCurrency(n) {
@@ -49,6 +70,7 @@ function addToCart(title, price, img) {
   saveCart();
   openCart();
   flashToast("Produit ajouté au panier !");
+  trackEvent("add_to_cart", { parfum: safeTitle, prix: safePrice });
 }
 
 function updateQty(title, newQty) {
@@ -160,6 +182,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(overlay);
   overlay.addEventListener("click", closeCart);
 
+  // Track page view
+  trackEvent("page_view");
+
   // Bloque le bouton Commander si le panier est vide
   const checkoutBtn = document.querySelector(".checkout-btn");
   if (checkoutBtn) {
@@ -167,6 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (state.items.length === 0) {
         e.preventDefault();
         flashToast("⚠️ Votre panier est vide !");
+      } else {
+        trackEvent("click_commander", { nb_articles: state.items.length });
       }
     });
   }
@@ -236,8 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (clickCount === 3) {
         // Au bout de 3 clics, on redirige vers ta page secrète !
-        // ⚠️ REMPLACE "admin.html" PAR LE VRAI LIEN DE TES STATISTIQUES ⚠️
-        window.location.href = "admin.html"; 
+        window.location.href = "pages/analytics.html"; 
         clickCount = 0;
       } else {
         // Si tu t'arrêtes de cliquer pendant 1 seconde, le compteur retombe à 0
@@ -294,3 +320,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
+
