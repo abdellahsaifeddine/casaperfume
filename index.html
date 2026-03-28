@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE7HY113T0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-XE7HY113T0");
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CASAPERF — Parfums d’exception</title>
   <meta name="description" content="Parfums de luxe et décants authentiques au Maroc.">
-  <link rel="icon" href="images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="css/code.css">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="code.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="js/app.js" defer></script>
+  <script src="app.js" defer></script>
 
   <style>
-    /* STYLE MODIFIÉ : BLOC SOUS L'IMAGE */
     .promo-container {
-      margin: 2rem auto 4rem; /* Marges aérées */
-      max-width: 800px; /* On limite la largeur pour que ça reste élégant sur PC */
+      margin: 2rem auto 4rem; 
+      max-width: 800px; 
     }
     
     .promo-image {
@@ -118,8 +109,8 @@
       <div class="nav-item">
         <button class="nav-link">Nos Parfums <i class="fas fa-chevron-down"></i></button>
         <div class="dropdown">
-          <a href="pages/parfums-homme.html">Parfums Homme</a>
-          <a href="pages/parfums-femme.html">Parfums Femme</a>
+          <a href="parfums-homme.html">Parfums Homme</a>
+          <a href="parfums-femme.html">Parfums Femme</a>
         </div>
       </div>
       <button class="cart-btn" onclick="toggleCart()">
@@ -132,7 +123,7 @@
   <div class="main-container promo-container">
     
     <div class="promo-image">
-        <img src="images/back1.jpeg" alt="Offre Spéciale 30ml" loading="eager">
+        <img src="back1.jpeg" alt="Offre Spéciale 30ml" loading="eager">
     </div>
 
     <div class="promo-card">
@@ -142,7 +133,7 @@
         <button class="add-btn promo-btn"
                 data-title="Promo Spéciale (Pack 30ml)"
                 data-price="350"
-                data-img="images/back1.jpeg">
+                data-img="back1.jpeg">
             <span>Ajouter l'offre au panier</span>
             <span class="promo-price-tag">350 DH</span>
         </button>
@@ -159,7 +150,7 @@
            data-decant-price="119" data-decant-name="Azzaro The Most Wanted (Décant 10ml)"
            data-img="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
         <div class="project-image">
-            <a href="pages/azzaro-the-most-wanted-parfum.html">
+            <a href="azzaro-the-most-wanted-parfum.html">
                 <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/A/AZZARO/609404/274553-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="Azzaro">
             </a>
         </div>
@@ -184,7 +175,7 @@
            data-decant-price="119" data-decant-name="JPG Scandal EDP (Décant 10ml)"
            data-img="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
         <div class="project-image">
-            <a href="pages/jean-paul-gaultier-scandal-edp.html">
+            <a href="jean-paul-gaultier-scandal-edp.html">
                 <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/J/JEAN_PAUL_GAULTIER/617949/277890-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="JPG Scandal">
             </a>
         </div>
@@ -209,7 +200,7 @@
      data-img="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg">
   
   <div class="project-image">
-    <a href="pages/KhadlajShiyaakaBlue.html">
+    <a href="KhadlajShiyaakaBlue.html">
       <img loading="lazy" 
            src="https://cdn.notinoimg.com/detail_main_uhq/khadlaj/6291107974002_02-o/shiyaaka-blue___230811.jpg" 
            alt="Khadlaj Shiyaaka Blue">
@@ -241,7 +232,7 @@
             data-decant-price="119" data-decant-name="YSL Y EDP (Décant 10ml)"
             data-img="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
         <div class="project-image">
-            <a href="pages/ysl-y-edp.html">
+            <a href="ysl-y-edp.html">
                 <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/massivpimupload/Y/YVES_SAINT_LAURENT/446705/86346-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="YSL Y">
             </a>
         </div>
@@ -261,30 +252,125 @@
         </div>
       </div>
 
+      <!-- YSL MYSLF -->
+      <div class="project-card"
+           data-decant-price="119"
+           data-decant-name="YSL MYSLF EDP (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg">
+        <div class="project-image">
+          <a href="ysl-myslf-edp.html">
+            <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg" alt="YSL MYSLF">
+          </a>
+        </div>
+        <div class="project-info">
+          <div class="project-category">Homme <span class="badge original">Original</span><span class="badge decant">Décant</span></div>
+          <div class="project-title"><span>YSL MYSLF EDP</span></div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled">Original</button>
+            <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button class="add-btn"
+                    data-title="YSL MYSLF (Décant 10 ml)"
+                    data-price="119"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/Y/YVES_SAINT_LAURENT/701714/326622-media_swatch.jpg">
+              <i class="fas fa-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rasasi Hawas Black -->
+      <div class="project-card"
+           data-original-price="390"
+           data-decant-price="50"
+           data-original-name="Rasasi Hawas Black (Flacon complet)"
+           data-decant-name="Rasasi Hawas Black (Décant 10 ml)"
+           data-img="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif">
+        <div class="project-image">
+          <a href="rasasi-hawas-black-edp.html">
+            <img loading="lazy" src="https://fimgs.net/mdimg/perfume-thumbs/375x500.96817.2x.avif" alt="Rasasi Hawas Black">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Homme <span class="badge original">Original</span></p>
+          <div class="project-title"><span>Rasasi Hawas Black EDP</span></div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original">Original</button>
+            <button type="button" class="opt-btn" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">390 DH</span>
+            <button class="add-btn"><i class="fas fa-plus"></i> Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rue Broca Théorème Matrix (Épuisé) -->
+      <div class="project-card"
+           data-original-price="380"
+           data-original-name="Rue Broca Théorème Matrix EDP"
+           data-img="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1">
+        <div class="project-image">
+          <a href="rue-broca-theoreme-matrix-edp.html">
+            <img loading="lazy" style="opacity:0.8" src="https://www.parfumsetmoi.fr/data/tmp/3/3/198133_3.fr.jpg?1758484782_1" alt="Théorème Matrix">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Homme <span class="badge" style="background:#ef4444; color:white;">Rupture</span></p>
+          <div class="project-title"><span>Rue Broca Théorème Matrix</span></div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn active" data-type="original" style="width:100%; cursor:default;">Original</button>
+          </div>
+          <div class="product-meta">
+            <span class="price" style="color:#9ca3af">380 DH</span>
+            <button class="add-btn" disabled style="background:#9ca3af; cursor:not-allowed;">
+              <i class="fas fa-times"></i> Épuisé
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lancôme La Vie Est Belle (Femme) -->
+      <div class="project-card"
+           data-decant-price="119"
+           data-decant-name="Lancôme La Vie Est Belle (Décant 10 ml)"
+           data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+        <div class="project-image">
+          <a href="lancome-la-vie-est-belle-edp-recharge.html">
+            <img loading="lazy" src="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit" alt="Lancôme La Vie Est Belle">
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-category">Femme • Floral Gourmand <span class="badge decant">Décant</span></p>
+          <div class="project-title"><span>Lancôme La Vie Est Belle</span></div>
+          <div class="option-toggle">
+            <button type="button" class="opt-btn disabled">Original</button>
+            <button type="button" class="opt-btn active" data-type="decant">Décant</button>
+          </div>
+          <div class="product-meta">
+            <span class="price">119 DH</span>
+            <button class="add-btn"
+                    data-title="Lancôme La Vie Est Belle (Décant 10 ml)"
+                    data-price="119"
+                    data-img="https://media.sephora.eu/content/dam/digital/pim/published/L/LANCO/254232/45925-media_swatch.jpg?scaleWidth=585&scaleHeight=585&scaleMode=fit">
+              <i class="fas fa-plus"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <footer class="footer">
-    <p id="secret-trigger" style="cursor:default;">© CASAPERF — Tous droits réservés</p>
+    <p>© CASAPERF — Tous droits réservés</p>
     <div class="social-icons">
       <a href="https://www.instagram.com/perfumestory.ma/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@perfumestory.ma" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
-
-  <script>
-    // Raccourci secret : 5 clics rapides sur le copyright
-    let secretClicks = 0, secretTimer;
-    document.getElementById('secret-trigger').addEventListener('click', () => {
-      secretClicks++;
-      clearTimeout(secretTimer);
-      secretTimer = setTimeout(() => { secretClicks = 0; }, 2000);
-      if (secretClicks >= 5) {
-        secretClicks = 0;
-        window.location.href = 'pages/admin.html';
-      }
-    });
-  </script>
 
   <div class="cart-drawer">
     <div class="cart-header">
@@ -297,7 +383,7 @@
             <span>Total</span>
             <span id="subtotal">0 DH</span>
         </div>
-        <a href="pages/commande.html" class="checkout-btn">Commander sur WhatsApp</a>
+        <a href="commande.html" class="checkout-btn">Commander sur WhatsApp</a>
     </div>
   </div>
 
