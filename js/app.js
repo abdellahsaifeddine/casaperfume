@@ -1,24 +1,3 @@
-// ================== TRACKING EVENTS ==================
-
-const EVENTS_KEY = "casaperf_events";
-const SESSION_ID = Math.random().toString(36).slice(2, 10);
-
-function trackEvent(type, data = {}) {
-  try {
-    const events = JSON.parse(localStorage.getItem(EVENTS_KEY) || "[]");
-    events.push({
-      type,
-      ts: new Date().toISOString(),
-      page: window.location.pathname,
-      session: SESSION_ID,
-      ...data
-    });
-    // Garde max 1000 events
-    if (events.length > 1000) events.splice(0, events.length - 1000);
-    localStorage.setItem(EVENTS_KEY, JSON.stringify(events));
-  } catch(e) {}
-}
-
 // ================== CONFIGURATION & UTILITAIRES ==================
 
 function formatCurrency(n) {
@@ -28,14 +7,12 @@ function formatCurrency(n) {
   }) + " DH";
 }
 
-// SÉCURITÉ : Échappe les caractères pour éviter les attaques XSS
 function escapeHTML(str) {
   const div = document.createElement("div");
   div.appendChild(document.createTextNode(String(str)));
   return div.innerHTML;
 }
 
-// SÉCURITÉ : Vérifie que l'image est bien une URL valide ou un chemin local autorisé
 function sanitizeURL(url) {
   if (!url) return 'https://via.placeholder.com/70';
   if (url.startsWith('http://') || url.startsWith('https://')) return escapeHTML(url);
@@ -57,7 +34,7 @@ function saveCart() {
 }
 
 function addToCart(title, price, img) {
-  const safeTitle = escapeHTML(title); // Sécurisation à l'entrée
+  const safeTitle = escapeHTML(title);
   const safePrice = Number(price) || 0;
   const safeImg = sanitizeURL(img);
 
@@ -70,7 +47,6 @@ function addToCart(title, price, img) {
   saveCart();
   openCart();
   flashToast("Produit ajouté au panier !");
-  trackEvent("add_to_cart", { parfum: safeTitle, prix: safePrice });
 }
 
 function updateQty(title, newQty) {
@@ -106,7 +82,6 @@ function renderCart() {
     const div = document.createElement("div");
     div.className = "cart-item";
 
-    // Sécurité à la sortie
     const safeTitle = escapeHTML(item.title);
     const safePrice = formatCurrency(item.price);
     const safeQty   = Math.min(Math.max(1, parseInt(item.qty) || 1), 99);
@@ -132,29 +107,18 @@ function renderCart() {
 
   if (subtotalEl) subtotalEl.textContent = formatCurrency(total);
   if (countEl) countEl.textContent = count;
-
-  // Grise le bouton Commander si panier vide
-  const checkoutBtn = document.querySelector(".checkout-btn");
-  if (checkoutBtn) {
-    if (state.items.length === 0) {
-      checkoutBtn.style.opacity = "0.4";
-      checkoutBtn.style.pointerEvents = "none";
-      checkoutBtn.style.cursor = "not-allowed";
-    } else {
-      checkoutBtn.style.opacity = "1";
-      checkoutBtn.style.pointerEvents = "auto";
-      checkoutBtn.style.cursor = "pointer";
-    }
-  }
 }
 
 // ================== INTERFACE ==================
 
-let overlay;
-
-function openCart() { document.body.classList.add("cart-open"); if(overlay) overlay.style.display = "block"; }
-function closeCart() { document.body.classList.remove("cart-open"); if(overlay) overlay.style.display = "none"; }
+function openCart() { document.body.classList.add("cart-open"); }
+function closeCart() { document.body.classList.remove("cart-open"); }
 window.toggleCart = function() { document.body.classList.contains("cart-open") ? closeCart() : openCart(); };
+
+const overlay = document.createElement("div");
+overlay.className = "cart-overlay";
+document.body.appendChild(overlay);
+overlay.addEventListener("click", closeCart);
 
 function flashToast(message) {
   const toast = document.createElement("div");
@@ -175,29 +139,6 @@ function flashToast(message) {
 // ================== INITIALISATION ==================
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Création de l'overlay panier
-  overlay = document.createElement("div");
-  overlay.className = "cart-overlay";
-  overlay.style.display = "none";
-  document.body.appendChild(overlay);
-  overlay.addEventListener("click", closeCart);
-
-  // Track page view
-  trackEvent("page_view");
-
-  // Bloque le bouton Commander si le panier est vide
-  const checkoutBtn = document.querySelector(".checkout-btn");
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", (e) => {
-      if (state.items.length === 0) {
-        e.preventDefault();
-        flashToast("⚠️ Votre panier est vide !");
-      } else {
-        trackEvent("click_commander", { nb_articles: state.items.length });
-      }
-    });
-  }
-
   renderCart();
 
   document.body.addEventListener("click", (e) => {
@@ -249,31 +190,39 @@ document.addEventListener("DOMContentLoaded", () => {
   // LOGIQUE DE RECHERCHE
   const searchInput = document.getElementById("searchInput");
   const resultsBox = document.getElementById("searchResults");
+
   // ==========================================
   // SECRET ADMIN : TRIPLE CLIC SUR LE FOOTER
   // ==========================================
-  const secretAdminBtn = document.getElementById("secret-admin");
+  const secretAdminBtn = document.getElementById("footer-copyright");
   if (secretAdminBtn) {
     let clickCount = 0;
     let clickTimer;
 
     secretAdminBtn.addEventListener("click", () => {
       clickCount++;
-      clearTimeout(clickTimer); // On réinitialise le chrono à chaque clic
+      clearTimeout(clickTimer);
 
       if (clickCount === 3) {
-        // Au bout de 3 clics, on redirige vers ta page secrète !
-        window.location.href = "pages/analytics.html"; 
+        // Au bout de 3 clics, on demande le mot de passe
+        const pwd = prompt("Accès restreint. Mot de passe :");
+        
+        // "Q2FzYXBlcmZ1bWUxMjNA" est votre mot de passe "Casaperfume123@" encodé en Base64. 
+        // Ainsi le mot de passe n'apparaît pas en clair dans votre code public !
+        if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bWUxMjNA") {
+            window.location.href = "analytics.html"; 
+        } else if (pwd) {
+            alert("Mot de passe incorrect.");
+        }
         clickCount = 0;
       } else {
-        // Si tu t'arrêtes de cliquer pendant 1 seconde, le compteur retombe à 0
         clickTimer = setTimeout(() => {
           clickCount = 0;
         }, 1000);
       }
     });
   }
-  // Note: Les URLs ici pointent vers "pages/" car le script est exécuté depuis index.html
+
   const PRODUCTS_DB = [
     { name: "Azzaro The Most Wanted Parfum", url: "pages/azzaro-the-most-wanted-parfum.html" },
     { name: "Lancôme La Vie Est Belle", url: "pages/lancome-la-vie-est-belle-edp-recharge.html" },
@@ -302,7 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
                   div.className = "item";
                   div.textContent = m.name;
                   
-                  // Détection simple : si on est déjà dans le dossier "pages", on enlève le "pages/" du lien
                   let targetUrl = m.url;
                   if (window.location.pathname.includes('/pages/')) {
                       targetUrl = m.url.replace('pages/', '');
@@ -320,4 +268,3 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
-
