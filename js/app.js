@@ -1,29 +1,3 @@
-// ================== SUPABASE TRACKING ==================
-
-const SUPABASE_URL = "https://rzfeetzksgdiqcgybeou.supabase.co";
-const SUPABASE_KEY = "sb_publishable_Z5v_4w-e3Qq7DgDLyJ5oHw_sL3eSaGc";
-
-async function trackEvent(type, parfum = null, prix = null) {
-  try {
-    const page = window.location.pathname;
-    await fetch(`${SUPABASE_URL}/rest/v1/events`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
-        "Prefer": "return=minimal"
-      },
-      body: JSON.stringify({ type, parfum, prix, page })
-    });
-  } catch(e) {
-    console.warn("Tracking error:", e);
-  }
-}
-
-// Tracker la visite de page
-trackEvent("page_view");
-
 // ================== CONFIGURATION & UTILITAIRES ==================
 
 /**
@@ -34,6 +8,16 @@ function formatCurrency(n) {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }) + " DH";
+}
+
+/**
+ * Échappe les caractères HTML pour éviter les injections XSS
+ * À utiliser sur toute valeur venant de localStorage ou d'une source externe
+ */
+function escapeHTML(str) {
+  const div = document.createElement("div");
+  div.appendChild(document.createTextNode(String(str)));
+  return div.innerHTML;
 }
 
 const CART_KEY = "casaperf_cart_v2"; // Nouvelle version clé
@@ -59,7 +43,6 @@ function addToCart(title, price, img) {
   saveCart();
   openCart();
   flashToast("Produit ajouté au panier !");
-  trackEvent("add_to_cart", title, String(price));
 }
 
 function updateQty(title, newQty) {
@@ -94,13 +77,20 @@ function renderCart() {
 
     const div = document.createElement("div");
     div.className = "cart-item";
+    
+    // Sécurité : on échappe toutes les valeurs issues de localStorage (anti-XSS)
+    const safeTitle = escapeHTML(item.title);
+    const safePrice = formatCurrency(item.price);
+    const safeQty   = Math.min(Math.max(1, parseInt(item.qty) || 1), 99);
+    const safeImg   = /^https?:\/\//.test(item.img) ? escapeHTML(item.img) : 'https://via.placeholder.com/70';
+
     div.innerHTML = `
-      <img src="${item.img || 'https://via.placeholder.com/70'}" alt="${item.title}">
+      <img src="${safeImg}" alt="${safeTitle}">
       <div class="item-details">
-        <div class="item-title">${item.title}</div>
-        <div class="item-price">${formatCurrency(item.price)}</div>
+        <div class="item-title">${safeTitle}</div>
+        <div class="item-price">${safePrice}</div>
         <div class="item-controls">
-          <input type="number" class="qty-input" value="${item.qty}" min="1">
+          <input type="number" class="qty-input" value="${safeQty}" min="1" max="99">
           <button class="remove-btn">Supprimer</button>
         </div>
       </div>
@@ -220,17 +210,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const resultsBox = document.getElementById("searchResults");
   
-  // LISTE DES PRODUITS (À METTRE À JOUR MANUELLEMENT)
-  const inPages = window.location.pathname.includes('/pages/');
-  const pagesPrefix = inPages ? '' : 'pages/';
+  // LISTE DES PRODUITS (MISE À JOUR)
   const PRODUCTS_DB = [
-    { name: "Azzaro The Most Wanted Parfum", url: pagesPrefix + "azzaro-the-most-wanted-parfum.html" },
-    { name: "Lancôme La Vie Est Belle", url: pagesPrefix + "lancome-la-vie-est-belle-edp-recharge.html" },
-    { name: "YSL Y Eau de Parfum", url: pagesPrefix + "ysl-y-edp.html" },
-    { name: "YSL MYSLF", url: pagesPrefix + "ysl-myslf-edp.html" },
-    { name: "Rasasi Hawas Black", url: pagesPrefix + "rasasi-hawas-black-edp.html" },
-    { name: "Rue Broca Théorème Matrix", url: pagesPrefix + "rue-broca-theoreme-matrix-edp.html" },
-    { name: "Jean Paul Gaultier Scandal", url: pagesPrefix + "jean-paul-gaultier-scandal-edp.html" }
+    { name: "Azzaro The Most Wanted Parfum", url: "azzaro-the-most-wanted-parfum.html" },
+    { name: "Lancôme La Vie Est Belle", url: "lancome-la-vie-est-belle-edp-recharge.html" },
+    { name: "YSL Y Eau de Parfum", url: "ysl-y-edp.html" },
+    { name: "YSL MYSLF", url: "ysl-myslf-edp.html" },
+    { name: "Rasasi Hawas Black", url: "rasasi-hawas-black-edp.html" },
+    { name: "Rue Broca Théorème Matrix", url: "rue-broca-theoreme-matrix-edp.html" },
+    { name: "Jean Paul Gaultier Scandal", url: "jean-paul-gaultier-scandal-edp.html" },
+    { name: "Khadlaj Shiyaaka Blue", url: "khadlaj-shiyaaka-blue.html" } // Ajouté ici
   ];
 
   if(searchInput) {
@@ -263,12 +252,4 @@ document.addEventListener("DOMContentLoaded", () => {
           if(!e.target.closest(".header-search")) resultsBox.style.display = "none";
       });
   }
-
-  // Tracker le clic sur "Commander"
-  document.querySelectorAll(".checkout-btn, .checkout").forEach(btn => {
-    btn.addEventListener("click", () => {
-      trackEvent("click_commander");
-    });
-  });
-
 });
