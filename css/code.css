@@ -8,7 +8,7 @@
   --bg-color: #f9fafb;
   --text-color: #374151;
   --border-color: #e5e7eb;
-  --accent: #eab308; /* Couleur or pour le prix */
+  --accent: #eab308;
 }
 
 * {
@@ -195,7 +195,7 @@ header {
   gap: 2rem;
 }
 
-/* --- CARTES PRODUITS (L'ACCUEIL ET PARFUM HOMME) --- */
+/* --- CARTES PRODUITS --- */
 .project-card {
   background: white;
   border-radius: 12px;
@@ -213,7 +213,7 @@ header {
 .project-image img {
   width: 100%;
   height: 280px;
-  object-fit: contain; /* L'image s'ajuste bien au cadre */
+  object-fit: contain;
   padding: 1rem;
   background: white;
 }
@@ -309,11 +309,11 @@ header {
 }
 .add-btn:hover { background: #000; }
 
-/* --- TIROIR DU PANIER (LE MENU QUI GLISSE) --- */
+/* --- TIROIR DU PANIER --- */
 .cart-drawer {
   position: fixed;
   top: 0;
-  right: -450px; /* Caché par défaut */
+  right: -450px;
   width: 100%;
   max-width: 400px;
   height: 100vh;
@@ -325,7 +325,7 @@ header {
   flex-direction: column;
 }
 body.cart-open .cart-drawer {
-  right: 0; /* Apparaît quand ouvert */
+  right: 0;
 }
 .cart-overlay {
   position: fixed;
@@ -398,7 +398,7 @@ body.cart-open .cart-overlay {
 .checkout-btn {
   display: block;
   width: 100%;
-  background: #25D366; /* Vert WhatsApp */
+  background: #25D366;
   color: white;
   text-align: center;
   padding: 1rem;
@@ -409,7 +409,7 @@ body.cart-open .cart-overlay {
 }
 .checkout-btn:hover { transform: translateY(-2px); background: #1ebc59; }
 
-/* --- PAGE DETAILS PARFUM (Ex: Shiyaaka Blue) --- */
+/* --- PAGE DETAILS PARFUM --- */
 .product-detail-wrapper {
   max-width: 1000px;
   margin: 3rem auto;
