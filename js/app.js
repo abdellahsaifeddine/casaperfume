@@ -204,13 +204,19 @@ document.addEventListener("DOMContentLoaded", () => {
       clearTimeout(clickTimer);
 
       if (clickCount === 3) {
-        // Au bout de 3 clics, on demande le mot de passe
         const pwd = prompt("Accès restreint. Mot de passe :");
         
-        // "Q2FzYXBlcmZ1bWUxMjNA" est votre mot de passe "Casaperfume123@" encodé en Base64. 
-        // Ainsi le mot de passe n'apparaît pas en clair dans votre code public !
         if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bWUxMjNA") {
-            window.location.href = "analytics.html"; 
+            // LOGIQUE DE CHEMIN CORRIGÉE ICI 👇
+            let targetUrl = "pages/analytics.html";
+            
+            // Si on est déjà dans le dossier "pages" (ex: sur la page d'un parfum)
+            if (window.location.pathname.includes('/pages/')) {
+                targetUrl = "analytics.html";
+            }
+            
+            window.location.href = targetUrl;
+            // 👆 FIN DE LA CORRECTION
         } else if (pwd) {
             alert("Mot de passe incorrect.");
         }
@@ -222,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
   const PRODUCTS_DB = [
     { name: "Azzaro The Most Wanted Parfum", url: "pages/azzaro-the-most-wanted-parfum.html" },
     { name: "Lancôme La Vie Est Belle", url: "pages/lancome-la-vie-est-belle-edp-recharge.html" },
