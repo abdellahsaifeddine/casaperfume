@@ -110,6 +110,20 @@ function renderCart() {
 
   if (subtotalEl) subtotalEl.textContent = formatCurrency(total);
   if (countEl) countEl.textContent = count;
+
+  // Grise le bouton Commander si panier vide
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    if (state.items.length === 0) {
+      checkoutBtn.style.opacity = "0.4";
+      checkoutBtn.style.pointerEvents = "none";
+      checkoutBtn.style.cursor = "not-allowed";
+    } else {
+      checkoutBtn.style.opacity = "1";
+      checkoutBtn.style.pointerEvents = "auto";
+      checkoutBtn.style.cursor = "pointer";
+    }
+  }
 }
 
 // ================== INTERFACE ==================
@@ -117,6 +131,19 @@ function renderCart() {
 function openCart() { document.body.classList.add("cart-open"); }
 function closeCart() { document.body.classList.remove("cart-open"); }
 window.toggleCart = function() { document.body.classList.contains("cart-open") ? closeCart() : openCart(); };
+
+// Bloque le bouton Commander si le panier est vide
+document.addEventListener("DOMContentLoaded", () => {
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", (e) => {
+      if (state.items.length === 0) {
+        e.preventDefault();
+        flashToast("⚠️ Votre panier est vide !");
+      }
+    });
+  }
+});
 
 const overlay = document.createElement("div");
 overlay.className = "cart-overlay";
