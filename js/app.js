@@ -199,34 +199,36 @@ document.addEventListener("DOMContentLoaded", () => {
     let clickCount = 0;
     let clickTimer;
 
-    secretAdminBtn.addEventListener("click", () => {
-      clickCount++;
-      clearTimeout(clickTimer);
+   secretAdminBtn.addEventListener("click", () => {
+    clickCount++;
+    clearTimeout(clickTimer);
 
-      if (clickCount === 3) {
+    if (clickCount === 3) {
         const pwd = prompt("Accès restreint. Mot de passe :");
-        
-        if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bWUxMjNA") {
-            // LOGIQUE DE CHEMIN CORRIGÉE ICI 👇
-            let targetUrl = "pages/analytics.html";
+
+        if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bTEyM0BLi4=") {
             
+            // 👇 LOGIQUE DE CHEMIN CORRIGÉE ICI 👇
+            let targetUrl = "analytics.html";
+
             // Si on est déjà dans le dossier "pages" (ex: sur la page d'un parfum)
             if (window.location.pathname.includes('/pages/')) {
-                targetUrl = "analytics.html";
+                targetUrl = "../analytics.html";
             }
-            
+
             window.location.href = targetUrl;
-            // 👆 FIN DE LA CORRECTION
+            // 👆 FIN DE LA CORRECTION 👆
+
         } else if (pwd) {
             alert("Mot de passe incorrect.");
         }
         clickCount = 0;
-      } else {
+    } else {
         clickTimer = setTimeout(() => {
-          clickCount = 0;
+            clickCount = 0;
         }, 1000);
-      }
-    });
+    }
+});
   }
   const PRODUCTS_DB = [
     { name: "Azzaro The Most Wanted Parfum", url: "pages/azzaro-the-most-wanted-parfum.html" },
