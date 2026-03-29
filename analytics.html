@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analytics — CASAPERF</title>
-  <link rel="icon" href="../images/favicon.png" type="image/png">
+  <link rel="icon" href="images/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -342,7 +342,8 @@
     .stat-card::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0; left: 0;
+      right: 0;
       height: 2px;
       opacity: 0.6;
     }
@@ -716,7 +717,6 @@
 </head>
 <body>
 
-<!-- ====== LOGIN ====== -->
 <div id="login-screen">
   <div class="login-wrap">
     <div class="login-logo">CASAPERF</div>
@@ -730,16 +730,15 @@
       <button class="login-btn" onclick="login()">
         <i class="fas fa-chart-line" style="margin-right:6px"></i> Accéder au Dashboard
       </button>
+  
       <div class="login-error" id="login-error"></div>
     </div>
   </div>
 </div>
 
-<!-- ====== DASHBOARD ====== -->
 <div id="dashboard">
   <div class="layout">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-logo">CASAPERF</div>
       <div class="sidebar-tag">Admin Analytics</div>
@@ -762,7 +761,7 @@
       <a class="nav-item" href="https://analytics.google.com" target="_blank">
         <i class="fas fa-external-link-alt"></i> Ouvrir GA4
       </a>
-      <a class="nav-item" href="../index.html">
+      <a class="nav-item" href="index.html">
         <i class="fas fa-home"></i> Retour au site
       </a>
 
@@ -774,7 +773,6 @@
       </div>
     </aside>
 
-    <!-- MAIN -->
     <main class="main">
       <div class="topbar">
         <div class="page-title" id="section-title">VUE D'ENSEMBLE</div>
@@ -789,10 +787,8 @@
         </div>
       </div>
 
-      <!-- SECTION: OVERVIEW -->
       <div id="section-overview">
 
-        <!-- STAT CARDS -->
         <div class="stats-row">
           <div class="stat-card c1 fadein">
             <div class="stat-icon"><i class="fas fa-eye"></i></div>
@@ -820,7 +816,6 @@
           </div>
         </div>
 
-        <!-- CHART + PAGES -->
         <div class="grid-2">
           <div class="panel">
             <div class="panel-header">
@@ -841,7 +836,6 @@
 
       </div>
 
-      <!-- SECTION: PRODUCTS -->
       <div id="section-products" style="display:none">
         <div class="panel" style="margin-bottom:1rem">
           <div class="panel-header">
@@ -858,7 +852,6 @@
         </div>
       </div>
 
-      <!-- SECTION: EVENTS -->
       <div id="section-events" style="display:none">
         <div class="panel">
           <div class="panel-header">
@@ -871,7 +864,6 @@
         </div>
       </div>
 
-      <!-- SECTION: GA -->
       <div id="section-ga" style="display:none">
         <div class="ga-panel">
           <div class="ga-panel-header">
@@ -944,7 +936,6 @@
     events: 'ÉVÉNEMENTS',
     ga: 'GOOGLE ANALYTICS'
   };
-
   function showSection(name) {
     sections.forEach(s => {
       document.getElementById('section-' + s).style.display = s === name ? 'block' : 'none';
@@ -1002,7 +993,6 @@
     document.getElementById('s-carts').textContent   = formatNum(carts.length);
     document.getElementById('s-orders').textContent  = formatNum(orders.length);
     document.getElementById('s-sessions').textContent= formatNum(sessions.length || Math.max(1, Math.ceil(views.length * 0.4)));
-
     document.getElementById('s-views-today').textContent   = viewsToday + ' aujourd\'hui';
     document.getElementById('s-carts-today').textContent   = cartsToday + ' aujourd\'hui';
     document.getElementById('s-orders-today').textContent  = ordersToday + ' aujourd\'hui';
@@ -1014,7 +1004,6 @@
       const [, m, day] = d.split('-');
       return `${day}/${m}`;
     });
-
     if (chartInstance) chartInstance.destroy();
     const ctx = document.getElementById('chart-activity').getContext('2d');
     chartInstance = new Chart(ctx, {
@@ -1084,7 +1073,6 @@
     const parfumsSorted = Object.entries(parfumCount).sort((a,b) => b[1]-a[1]);
     const maxP = parfumsSorted[0]?.[1] || 1;
     document.getElementById('parfums-count').textContent = parfumsSorted.length + ' parfums';
-
     const parfumsList = document.getElementById('parfums-list');
     if (parfumsSorted.length === 0) {
       parfumsList.innerHTML = '<div class="empty">Aucun ajout au panier encore</div>';
