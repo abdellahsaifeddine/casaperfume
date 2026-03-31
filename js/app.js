@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clickCount === 3) {
         const pwd = prompt("Accès restreint. Mot de passe :");
 
-        if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bTEyM0BLi4=") {
+        if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bWUxMjNA") {
             
             // 👇 LOGIQUE DE CHEMIN CORRIGÉE ICI 👇
             let targetUrl = "analytics.html";
