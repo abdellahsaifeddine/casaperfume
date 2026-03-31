@@ -1,4 +1,3 @@
-
 // ================== CONFIGURATION & UTILITAIRES ==================
 
 function formatCurrency(n) {
@@ -195,59 +194,62 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // SECRET ADMIN : TRIPLE CLIC SUR LE FOOTER
   // ==========================================
-  const secretAdminBtn = document.getElementById("footer-copyright");
-  if (secretAdminBtn) {
-    // Plus fiable que "click" (mobile/desktop) + fenêtre de temps plus large.
-    // 3 taps/clics en <= 2.2s déclenchent le prompt.
-    let tapCount = 0;
-    let firstTapAt = 0;
-    let resetTimer;
+  // On écoute le footer au sens large (toutes les pages n'ont pas le même HTML/id).
+  // 3 taps/clics en <= 2.2s déclenchent le prompt.
+  let tapCount = 0;
+  let firstTapAt = 0;
+  let resetTimer;
 
-    const reset = () => {
-      tapCount = 0;
-      firstTapAt = 0;
-      if (resetTimer) clearTimeout(resetTimer);
-      resetTimer = undefined;
-    };
+  const resetSecret = () => {
+    tapCount = 0;
+    firstTapAt = 0;
+    if (resetTimer) clearTimeout(resetTimer);
+    resetTimer = undefined;
+  };
 
-    secretAdminBtn.addEventListener("pointerdown", (e) => {
-      try {
-        // Évite une sélection de texte qui “mange” le multi-tap.
-        e.preventDefault();
+  const isFooterTap = (target) => {
+    const footerEl = target && target.closest ? target.closest("footer, .footer") : null;
+    if (!footerEl) return false;
+    const txt = (footerEl.textContent || "").toLowerCase();
+    return txt.includes("casaperf");
+  };
 
-        const now = Date.now();
-        if (tapCount === 0) firstTapAt = now;
+  document.addEventListener("pointerdown", (e) => {
+    if (!isFooterTap(e.target)) return;
 
-        // Si l’utilisateur met trop de temps, on repart à 0.
-        if (firstTapAt && now - firstTapAt > 2200) {
-          reset();
-          firstTapAt = now;
-        }
+    try {
+      // Évite une sélection de texte qui “mange” le multi-tap.
+      e.preventDefault();
 
-        tapCount += 1;
-        if (resetTimer) clearTimeout(resetTimer);
-        resetTimer = setTimeout(reset, 2300);
+      const now = Date.now();
+      if (tapCount === 0) firstTapAt = now;
 
-        if (tapCount === 3) {
-          const pwd = prompt("Accès restreint. Mot de passe :");
-
-          // Mot de passe: Casaperfume123@
-          if (pwd === "Casaperfume123@") {
-            let targetUrl = "analytics.html";
-            if (window.location.pathname.includes("/pages/")) targetUrl = "../analytics.html";
-            window.location.href = targetUrl;
-          } else if (pwd) {
-            alert("Mot de passe incorrect.");
-          }
-
-          reset();
-        }
-      } catch (_) {
-        // Si une erreur arrive ici, on reset juste pour ne pas bloquer l’UI.
-        reset();
+      if (firstTapAt && now - firstTapAt > 2200) {
+        resetSecret();
+        firstTapAt = now;
       }
-    });
-  }
+
+      tapCount += 1;
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(resetSecret, 2300);
+
+      if (tapCount === 3) {
+        const pwd = prompt("Accès restreint. Mot de passe :");
+
+        if (pwd === "Casaperfume123@") {
+          let targetUrl = "analytics.html";
+          if (window.location.pathname.includes("/pages/")) targetUrl = "../analytics.html";
+          window.location.href = targetUrl;
+        } else if (pwd) {
+          alert("Mot de passe incorrect.");
+        }
+
+        resetSecret();
+      }
+    } catch (_) {
+      resetSecret();
+    }
+  }, { passive: false });
   const PRODUCTS_DB = [
     { name: "Azzaro The Most Wanted Parfum", url: "pages/azzaro-the-most-wanted-parfum.html" },
     { name: "Lancôme La Vie Est Belle", url: "pages/lancome-la-vie-est-belle-edp-recharge.html" },
