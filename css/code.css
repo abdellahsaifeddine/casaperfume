@@ -51,6 +51,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  gap: 1.25rem;
 }
 
 .logo {
@@ -66,6 +67,8 @@ header {
   flex: 1;
   max-width: 400px;
   margin: 0 2rem;
+  min-width: 0;
+  z-index: 1;
 }
 .search-bar {
   display: flex;
@@ -81,6 +84,7 @@ header {
   outline: none;
   margin-left: 10px;
   width: 100%;
+  min-width: 0;
   font-size: 0.95rem;
 }
 #searchResults {
@@ -114,6 +118,9 @@ header {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 .nav-item {
   position: relative;
