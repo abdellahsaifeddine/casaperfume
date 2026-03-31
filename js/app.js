@@ -1,3 +1,4 @@
+
 // ================== CONFIGURATION & UTILITAIRES ==================
 
 function formatCurrency(n) {
