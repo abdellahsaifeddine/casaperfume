@@ -462,6 +462,10 @@ body.cart-open .cart-overlay {
 .variant-action { display: flex; align-items: center; gap: 15px; }
 .variant-price { font-weight: 800; font-size: 1.25rem; color: var(--primary); }
 
+body.cart-open .cart-drawer {
+  right: 0;
+}
+
 /* --- FOOTER --- */
 .footer {
   background: var(--primary);
