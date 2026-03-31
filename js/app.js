@@ -196,39 +196,56 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   const secretAdminBtn = document.getElementById("footer-copyright");
   if (secretAdminBtn) {
-    let clickCount = 0;
-    let clickTimer;
+    // Plus fiable que "click" (mobile/desktop) + fenêtre de temps plus large.
+    // 3 taps/clics en <= 2.2s déclenchent le prompt.
+    let tapCount = 0;
+    let firstTapAt = 0;
+    let resetTimer;
 
-   secretAdminBtn.addEventListener("click", () => {
-    clickCount++;
-    clearTimeout(clickTimer);
+    const reset = () => {
+      tapCount = 0;
+      firstTapAt = 0;
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = undefined;
+    };
 
-    if (clickCount === 3) {
-        const pwd = prompt("Accès restreint. Mot de passe :");
+    secretAdminBtn.addEventListener("pointerdown", (e) => {
+      try {
+        // Évite une sélection de texte qui “mange” le multi-tap.
+        e.preventDefault();
 
-        if (pwd && btoa(pwd) === "Q2FzYXBlcmZ1bWUxMjNA") {
-            
-            // 👇 LOGIQUE DE CHEMIN CORRIGÉE ICI 👇
-            let targetUrl = "analytics.html";
+        const now = Date.now();
+        if (tapCount === 0) firstTapAt = now;
 
-            // Si on est déjà dans le dossier "pages" (ex: sur la page d'un parfum)
-            if (window.location.pathname.includes('/pages/')) {
-                targetUrl = "../analytics.html";
-            }
-
-            window.location.href = targetUrl;
-            // 👆 FIN DE LA CORRECTION 👆
-
-        } else if (pwd) {
-            alert("Mot de passe incorrect.");
+        // Si l’utilisateur met trop de temps, on repart à 0.
+        if (firstTapAt && now - firstTapAt > 2200) {
+          reset();
+          firstTapAt = now;
         }
-        clickCount = 0;
-    } else {
-        clickTimer = setTimeout(() => {
-            clickCount = 0;
-        }, 1000);
-    }
-});
+
+        tapCount += 1;
+        if (resetTimer) clearTimeout(resetTimer);
+        resetTimer = setTimeout(reset, 2300);
+
+        if (tapCount === 3) {
+          const pwd = prompt("Accès restreint. Mot de passe :");
+
+          // Mot de passe: Casaperfume123@
+          if (pwd === "Casaperfume123@") {
+            let targetUrl = "analytics.html";
+            if (window.location.pathname.includes("/pages/")) targetUrl = "../analytics.html";
+            window.location.href = targetUrl;
+          } else if (pwd) {
+            alert("Mot de passe incorrect.");
+          }
+
+          reset();
+        }
+      } catch (_) {
+        // Si une erreur arrive ici, on reset juste pour ne pas bloquer l’UI.
+        reset();
+      }
+    });
   }
   const PRODUCTS_DB = [
     { name: "Azzaro The Most Wanted Parfum", url: "pages/azzaro-the-most-wanted-parfum.html" },
@@ -241,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Khadlaj Shiyaaka Blue", url: "pages/khadlaj-shiyaaka-blue.html" }
   ];
 
-  if(searchInput) {
+  if (searchInput && resultsBox) {
       searchInput.addEventListener("input", (e) => {
           const val = e.target.value.toLowerCase();
           resultsBox.innerHTML = "";
